@@ -87,9 +87,9 @@ public class RangedEnemy : MonoBehaviour
     {
         if (shootCooldown <= 0)
         {
-            FiredBullet = Instantiate(bullet, bulletLocation.transform.position, bulletLocation.transform.localRotation);
+            FiredBullet = Instantiate(bullet, bulletLocation.transform.position, Quaternion.identity);
             dir = (target.position - transform.position).normalized;
-            dirRot();
+            dirRot();    
             FiredBullet.GetComponentInChildren<EnemyBulletMove>().enemyDirection = new Vector2(dir.x, dir.y);
             Debug.Log(dir);
             shootCooldown = 1;
@@ -106,7 +106,6 @@ public class RangedEnemy : MonoBehaviour
 
         float m_Angle = Vector2.Angle(new Vector2(1, 0), direction);
 
-        Debug.Log(m_Angle);
 
         if (target.transform.position.y > transform.position.y)
         {
@@ -116,25 +115,25 @@ public class RangedEnemy : MonoBehaviour
                 dir.x = 1;
                 dir.y = 0;
             }
-            if (m_Angle > 22.5 && m_Angle < 67.5)
+            else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
                 dir.x = 1;
                 dir.y = 1;
                 bulletImage.transform.localRotation = Quaternion.Euler(0, 0, 45);
             }
-            if (m_Angle > 67.5 && m_Angle < 112.5)
+            else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
                 dir.x = 0;
                 dir.y = 1;
                 bulletImage.transform.localRotation = Quaternion.Euler(0, 0, 90);
             }
-            if (m_Angle > 112.5 && m_Angle < 157.5)
+            else if (m_Angle > 112.5 && m_Angle < 157.5)
             {
                 dir.x = -1;
                 dir.y = 1;
                 bulletImage.transform.localRotation = Quaternion.Euler(0, 0, -45);
             }
-            if (m_Angle > 157.5 && m_Angle < 180)
+            else if (m_Angle > 157.5 && m_Angle < 180)
             {
                 dir.x = -1;
                 dir.y = 0;
@@ -150,25 +149,25 @@ public class RangedEnemy : MonoBehaviour
                 dir.x = 1;
                 dir.y = 0;
             }
-            if (m_Angle > 22.5 && m_Angle < 67.5)
+            else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
                 bulletImage.transform.localRotation = Quaternion.Euler(0, 0, -45);
                 dir.x = 1;
                 dir.y = -1;
             }
-            if (m_Angle > 67.5 && m_Angle < 112.5)
+            else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
                 bulletImage.transform.localRotation = Quaternion.Euler(0, 0, 90);
                 dir.x = 0;
                 dir.y = -1;
             }
-            if (m_Angle > 112.5 && m_Angle < 157.5)
+            else if (m_Angle > 112.5 && m_Angle < 157.5)
             {
                 bulletImage.transform.localRotation = Quaternion.Euler(0, 0, 45);
                 dir.x = -1;
                 dir.y = -1;
-            }
-            if (m_Angle > 157.5 && m_Angle < 180)
+            } 
+            else if (m_Angle > 157.5 && m_Angle < 180)
             {
                 bulletImage.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 dir.x = -1;
