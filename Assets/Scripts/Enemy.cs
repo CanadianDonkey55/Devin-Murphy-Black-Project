@@ -19,6 +19,18 @@ public class Enemy : MonoBehaviour
     public float locatedDistance = 10f;
     public float resetDistance = 5f;
 
+    private Vector2 dir;
+
+    [Header("Sprites")]
+    public Sprite front;
+    public Sprite back;
+    //public Sprite left;
+    //public Sprite right;
+    //public Sprite upleft;
+    //public Sprite upright;
+    //public Sprite downleft;
+    //public Sprite downright;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +71,63 @@ public class Enemy : MonoBehaviour
         {
             agent.SetDestination(transform.position);
             locateDistance = resetDistance;
+        }
+    }
+
+    private void dirRot()
+    {
+        dir = (target.position - transform.position).normalized;
+        var distance = dir.magnitude;
+        var direction = dir / distance;
+
+        float m_Angle = Vector2.Angle(new Vector2(1, 0), direction);
+
+        if (target.transform.position.y > transform.position.y)
+        {
+            if (m_Angle > 0 && m_Angle < 22.5)
+            {
+                
+            }
+            else if (m_Angle > 22.5 && m_Angle < 67.5)
+            {
+                
+            }
+            else if (m_Angle > 67.5 && m_Angle < 112.5)
+            {
+            
+            }
+            else if (m_Angle > 112.5 && m_Angle < 157.5)
+            {
+                
+            }
+            else if (m_Angle > 157.5 && m_Angle < 180)
+            {
+                
+            }
+        }
+
+        else if (target.transform.position.y < transform.position.y)
+        {
+            if (m_Angle > 0 && m_Angle < 22.5)
+            {
+                
+            }
+            else if (m_Angle > 22.5 && m_Angle < 67.5)
+            {
+                
+            }
+            else if (m_Angle > 67.5 && m_Angle < 112.5)
+            {
+                
+            }
+            else if (m_Angle > 112.5 && m_Angle < 157.5)
+            {
+                
+            }
+            else if (m_Angle > 157.5 && m_Angle < 180)
+            {
+                
+            }
         }
     }
 }

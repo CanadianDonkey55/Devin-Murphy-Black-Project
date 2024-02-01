@@ -100,7 +100,7 @@ public class RangedEnemy : MonoBehaviour
 
     private void dirRot()
     {
-        GameObject bulletImage = bullet.transform.GetChild(0).gameObject;
+        //GameObject bulletImage = bullet.transform.GetChild(0).gameObject;
         var distance = dir.magnitude;
         var direction = dir / distance;
 
@@ -111,7 +111,7 @@ public class RangedEnemy : MonoBehaviour
         {
             if (m_Angle > 0 && m_Angle < 22.5)
             {
-                bulletImage.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                FiredBullet.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 dir.x = 1;
                 dir.y = 0;
             }
@@ -119,25 +119,25 @@ public class RangedEnemy : MonoBehaviour
             {
                 dir.x = 1;
                 dir.y = 1;
-                bulletImage.transform.localRotation = Quaternion.Euler(0, 0, 45);
+                FiredBullet.transform.localRotation = Quaternion.Euler(0, 0, 45);
             }
             else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
                 dir.x = 0;
                 dir.y = 1;
-                bulletImage.transform.localRotation = Quaternion.Euler(0, 0, 90);
+                FiredBullet.transform.localRotation = Quaternion.Euler(0, 0, 90);
             }
             else if (m_Angle > 112.5 && m_Angle < 157.5)
             {
                 dir.x = -1;
                 dir.y = 1;
-                bulletImage.transform.localRotation = Quaternion.Euler(0, 0, -45);
+                FiredBullet.transform.localRotation = Quaternion.Euler(0, 0, 135);
             }
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
                 dir.x = -1;
                 dir.y = 0;
-                bulletImage.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                FiredBullet.transform.localRotation = Quaternion.Euler(0, 0, 180);
             }
         }
 
@@ -145,31 +145,31 @@ public class RangedEnemy : MonoBehaviour
         {
             if (m_Angle > 0 && m_Angle < 22.5)
             {
-                bulletImage.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                FiredBullet.transform.localRotation = Quaternion.Euler(0, 0, 0);
                 dir.x = 1;
                 dir.y = 0;
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
-                bulletImage.transform.localRotation = Quaternion.Euler(0, 0, -45);
+                FiredBullet.transform.localRotation = Quaternion.Euler(0, 0, -45);
                 dir.x = 1;
                 dir.y = -1;
             }
             else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
-                bulletImage.transform.localRotation = Quaternion.Euler(0, 0, 90);
+                FiredBullet.transform.localRotation = Quaternion.Euler(0, 0, -90);
                 dir.x = 0;
                 dir.y = -1;
             }
             else if (m_Angle > 112.5 && m_Angle < 157.5)
             {
-                bulletImage.transform.localRotation = Quaternion.Euler(0, 0, 45);
+                FiredBullet.transform.localRotation = Quaternion.Euler(0, 0, -135);
                 dir.x = -1;
                 dir.y = -1;
             } 
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
-                bulletImage.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                FiredBullet.transform.localRotation = Quaternion.Euler(0, 0, -180);
                 dir.x = -1;
                 dir.y = 0;
             }

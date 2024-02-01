@@ -14,7 +14,7 @@ public class EnemyBulletMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Destroy(gameObject, maxLifetime);
     }
 
     void Update()
@@ -24,8 +24,7 @@ public class EnemyBulletMove : MonoBehaviour
 
     public void Shoot(Vector2 dir)
     {
-        transform.Translate(dir * bulletSpeed * Time.deltaTime);
-        Destroy(gameObject, maxLifetime);
+        transform.Translate(Vector2.right * bulletSpeed * Time.deltaTime);   
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
