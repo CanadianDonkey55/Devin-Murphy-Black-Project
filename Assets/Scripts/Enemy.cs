@@ -24,8 +24,8 @@ public class Enemy : MonoBehaviour
     [Header("Sprites")]
     public Sprite front;
     public Sprite back;
-    //public Sprite left;
-    //public Sprite right;
+    public Sprite left;
+    public Sprite right;
     //public Sprite upleft;
     //public Sprite upright;
     //public Sprite downleft;
