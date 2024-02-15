@@ -503,15 +503,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9762e319493458a41b07a4f4b1813a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 160792067700619575, guid: aeb087a625a20164389ba3ed300eba4f, type: 3}
+  target: {fileID: 0}
   healthBar: {fileID: 4795145230688152060}
   health: 20
   locatedDistance: 10
   resetDistance: 5
   front: {fileID: 21300000, guid: ec3d88ad8f95da849bf2a9673dd824a7, type: 3}
   back: {fileID: 21300000, guid: f0294a099c2c27046a11be856d54316c, type: 3}
-  left: {fileID: 0}
-  right: {fileID: 0}
+  left: {fileID: 21300000, guid: 8293f65393fc8f149b9ac75fe46fb74a, type: 3}
+  right: {fileID: 21300000, guid: 7be0b8d24c614e24f91d4b7c61d9744d, type: 3}
+  renderer: {fileID: 8065306380012905708}
 --- !u!50 &9108033165102937408
 Rigidbody2D:
   serializedVersion: 4

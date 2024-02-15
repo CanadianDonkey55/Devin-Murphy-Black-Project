@@ -31,6 +31,8 @@ public class Enemy : MonoBehaviour
     //public Sprite downleft;
     //public Sprite downright;
 
+    private new SpriteRenderer renderer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class Enemy : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         locateDistance = resetDistance;
+        renderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -86,7 +89,7 @@ public class Enemy : MonoBehaviour
         {
             if (m_Angle > 0 && m_Angle < 22.5)
             {
-                
+                renderer.sprite = right;
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
@@ -94,7 +97,7 @@ public class Enemy : MonoBehaviour
             }
             else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
-            
+                renderer.sprite = back;
             }
             else if (m_Angle > 112.5 && m_Angle < 157.5)
             {
@@ -102,7 +105,7 @@ public class Enemy : MonoBehaviour
             }
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
-                
+                renderer.sprite = left;
             }
         }
 
@@ -110,7 +113,7 @@ public class Enemy : MonoBehaviour
         {
             if (m_Angle > 0 && m_Angle < 22.5)
             {
-                
+                renderer.sprite = right;
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
@@ -118,7 +121,7 @@ public class Enemy : MonoBehaviour
             }
             else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
-                
+                renderer.sprite = front;
             }
             else if (m_Angle > 112.5 && m_Angle < 157.5)
             {
@@ -126,7 +129,7 @@ public class Enemy : MonoBehaviour
             }
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
-                
+                renderer.sprite = left;
             }
         }
     }
