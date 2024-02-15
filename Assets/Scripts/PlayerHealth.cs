@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,6 +12,14 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float bulletDamage = 7f;
 
     public Slider healthBar;
+
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            SceneManager.LoadScene(1);
+        }
+    }
 
     private void TakeDamage(float damageTaken)
     {
