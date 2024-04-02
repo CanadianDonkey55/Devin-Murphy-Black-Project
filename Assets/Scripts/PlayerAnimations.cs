@@ -11,13 +11,15 @@ public class PlayerAnimations : MonoBehaviour
     public float verticalInput;
     public float horizontalInputMax;
     public float verticalInputMax;
+    public float lastVerticalSpeed;
+    public float lastHorizontalSpeed;
     public GameObject player;
     public Sprite defaultDirection;
 
     // Start is called before the first frame update
     void Start()
     {
-        PlayerMovement pm = player.GetComponent<PlayerMovement>();
+
     }
 
     // Update is called once per frame
@@ -29,14 +31,20 @@ public class PlayerAnimations : MonoBehaviour
         if (horizontalInput > 0)
         {
             horizontalInputMax = 1;
+            lastHorizontalSpeed = 1;
+            lastVerticalSpeed = 0;
             verticalInputMax = 0;
             defaultDirection = player.GetComponent<PlayerMovement>().right;
+            playerAnimator.SetBool("walking", true);
         }
         else if (horizontalInput < 0)
         {
             horizontalInputMax = -1;
+            lastHorizontalSpeed = -1;
+            lastVerticalSpeed = 0;
             verticalInputMax = 0;
             defaultDirection = player.GetComponent<PlayerMovement>().left;
+            playerAnimator.SetBool("walking", true);
         } 
         else if (horizontalInput == 0)
         {
@@ -46,82 +54,72 @@ public class PlayerAnimations : MonoBehaviour
         if (verticalInput > 0)
         {
             verticalInputMax = 1;
+            lastVerticalSpeed = 1;
+            lastHorizontalSpeed = 0;
             horizontalInputMax = 0;
             defaultDirection = player.GetComponent<PlayerMovement>().back;
+            playerAnimator.SetBool("walking", true);
         }
         else if (verticalInput < 0)
         {
             verticalInputMax = -1;
+            lastVerticalSpeed = -1;
+            lastHorizontalSpeed = 0;
             horizontalInputMax = 0;
             defaultDirection = player.GetComponent<PlayerMovement>().front;
+            playerAnimator.SetBool("walking", true);
         } 
         else if (verticalInput == 0)
         {
             verticalInputMax = 0;
         }
 
+        if (verticalInput > 0 && horizontalInput > 0)
+        {
+            verticalInputMax = 1;
+            lastVerticalSpeed = 1;
+            horizontalInputMax = 1;
+            lastHorizontalSpeed = 1;
+            defaultDirection = player.GetComponent<PlayerMovement>().backRight;
+            playerAnimator.SetBool("walking", true);
+        }
+        if (verticalInput > 0 && horizontalInput < 0)
+        {
+            verticalInputMax = 1;
+            lastVerticalSpeed = 1;
+            horizontalInputMax = -1;
+            lastHorizontalSpeed = -1;
+            defaultDirection = player.GetComponent<PlayerMovement>().backLeft;
+            playerAnimator.SetBool("walking", true);
+        }
+        if (verticalInput < 0 && horizontalInput > 0)
+        {
+            verticalInputMax = -1;
+            lastVerticalSpeed = -1;
+            horizontalInputMax = 1;
+            lastHorizontalSpeed = 1;
+            defaultDirection = player.GetComponent<PlayerMovement>().frontRight;
+            playerAnimator.SetBool("walking", true);
+        }
+        if (verticalInput < 0 && horizontalInput < 0)
+        {
+            verticalInputMax = -1;
+            lastVerticalSpeed = -1;
+            horizontalInputMax = -1;
+            lastHorizontalSpeed = -1;
+            defaultDirection = player.GetComponent<PlayerMovement>().frontLeft;
+            playerAnimator.SetBool("walking", true);
+        }
+
         playerAnimator.SetFloat("horizontalSpeed", horizontalInputMax);
         playerAnimator.SetFloat("verticalSpeed", verticalInputMax);
+        playerAnimator.SetFloat("lastVerticalSpeed", lastVerticalSpeed);
+        playerAnimator.SetFloat("lastHorizontalSpeed", lastHorizontalSpeed);
 
         if (verticalInput == 0 && horizontalInput == 0)
         {
             player.GetComponent<SpriteRenderer>().sprite = defaultDirection;
+            playerAnimator.SetBool("walking", false);
         }
-
-        
-
-
-        /*  if (verticalInput < 0 && horizontalInput == 0)
-          {
-              FacingDirection("Front", true);
-          } 
-          else
-          {
-              foreach (AnimatorControllerParameter parameter in playerAnimator.parameters)
-              {
-                  playerAnimator.SetBool(parameter.name, false);
-              }
-          }
-
-          if (verticalInput > 0 && horizontalInput == 0)
-          {
-              FacingDirection("Back", true);
-          }
-          else
-          {
-              foreach (AnimatorControllerParameter parameter in playerAnimator.parameters)
-              {
-                  playerAnimator.SetBool(parameter.name, false);
-              }
-          }
-
-          if (verticalInput == 0 && horizontalInput > 0)
-          {
-              FacingDirection("Right", true);
-          }
-          else
-          {
-              foreach (AnimatorControllerParameter parameter in playerAnimator.parameters)
-              {
-                  playerAnimator.SetBool(parameter.name, false);
-              }
-          }
-
-          if (verticalInput == 0 && horizontalInput < 0)
-          {
-              FacingDirection("Left", true);
-          }
-          else
-          {
-              foreach (AnimatorControllerParameter parameter in playerAnimator.parameters)
-              {
-                  playerAnimator.SetBool(parameter.name, false);
-              }
-          }*/
     } 
-
-   // void FacingDirection(string dir, bool ft)
-    //{
-   //     playerAnimator.SetBool("isWalking" + dir, ft);
-   // }
 }
