@@ -5,17 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class ButtonManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public GameObject levelScreen;
+    public GameObject mainScreen;
+    public GameObject optionsScreen;
 
     public void HomeButton()
     {
@@ -23,7 +15,8 @@ public class ButtonManager : MonoBehaviour
     }
     public void Continue()
     {
-        SceneManager.LoadScene(2);
+        ContinueLoader loaders = FindObjectOfType<ContinueLoader>();
+        SceneManager.LoadScene(loaders.sceneNumber);
     }
     public void StartButton()
     {
@@ -32,5 +25,68 @@ public class ButtonManager : MonoBehaviour
     public void QuitButton()
     {
         Application.Quit();
+    }
+    public void LevelsButton()
+    {
+        mainScreen.SetActive(false);
+        levelScreen.SetActive(true);
+    }
+    public void LevelSelectBackButton()
+    {
+        levelScreen.SetActive(false);
+        mainScreen.SetActive(true);
+    }
+    public void OptionsButton()
+    {
+        mainScreen.SetActive(false);
+        optionsScreen.SetActive(true);
+    }
+    public void OptionsBackButton()
+    {
+        mainScreen.SetActive(true);
+        optionsScreen.SetActive(false);
+    }
+
+
+    // Level Loading
+    public void LoadLevel1()
+    {
+        SceneManager.LoadScene(2);
+    }
+    public void LoadLevel2()
+    {
+        SceneManager.LoadScene(3);
+    }
+    public void LoadLevel3()
+    {
+        SceneManager.LoadScene(4);
+    }
+    public void LoadLevel4()
+    {
+        SceneManager.LoadScene(5);
+    }
+    public void LoadLevel5()
+    {
+        SceneManager.LoadScene(6);
+    }
+    public void LoadLevel6()
+    {
+        SceneManager.LoadScene(7);
+    }
+    public void LoadLevel7()
+    {
+        SceneManager.LoadScene(8);
+    }
+    public void LoadLevel8()
+    {
+        SceneManager.LoadScene(9);
+    }
+    public void LoadLevel9()
+    {
+        SceneManager.LoadScene(10);
+    }
+    public void LoadLevel10()
+    {
+        SceneManager.LoadScene(11);
     }
 }

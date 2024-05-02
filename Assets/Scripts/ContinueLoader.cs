@@ -8,7 +8,17 @@ public class ContinueLoader : MonoBehaviour
     public int sceneNumber;
     public bool onLevel;
     public ContinueLoader sceneManagement;
-    
+
+    [Header("Bools")]
+    public bool lvl1Done = false;
+    public bool lvl2Done = false;
+    public bool lvl3Done = false;
+    public bool lvl4Done = false;
+    public bool lvl5Done = false;
+    public bool lvl6Done = false;
+    public bool lvl7Done = false;
+    public bool lvl8Done = false;
+    public bool lvl9Done = false;
 
     private void Awake()
     {
@@ -31,7 +41,8 @@ public class ContinueLoader : MonoBehaviour
     {
         if (onLevel == true)
         {
-            ContinueLoader[] loaders; = FindObjectsOfType<ContinueLoader>();
+            ContinueLoader loaders = FindObjectOfType<ContinueLoader>();
+            loaders.sceneNumber = sceneNumber;
             
         }
     }

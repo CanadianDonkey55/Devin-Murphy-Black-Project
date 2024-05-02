@@ -91,7 +91,6 @@ public class RangedEnemy : MonoBehaviour
             dir = (target.position - transform.position).normalized;
             dirRot();    
             FiredBullet.GetComponentInChildren<EnemyBulletMove>().enemyDirection = new Vector2(dir.x, dir.y);
-            Debug.Log(dir);
             shootCooldown = 1;
         }
 
