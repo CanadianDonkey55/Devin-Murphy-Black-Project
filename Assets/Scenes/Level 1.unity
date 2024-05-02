@@ -962,6 +962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelComplete: {fileID: 1573209929}
+  continueLoader: {fileID: 127594361}
 --- !u!61 &457241941
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1878,7 +1879,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931856244}
-  m_LocalRotation: {x: -0.0099985, y: 1.1101121e-16, z: 2.220113e-18, w: 0.99995005}
+  m_LocalRotation: {x: -0.0099985, y: 1.6651682e-16, z: 2.462808e-18, w: 0.99995005}
   m_LocalPosition: {x: -6.52, y: -0.26, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2652,7 +2653,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162508404}
-  m_LocalRotation: {x: -0.0099985, y: 1.1101121e-16, z: 2.220113e-18, w: 0.99995005}
+  m_LocalRotation: {x: -0.0099985, y: 1.6651682e-16, z: 2.462808e-18, w: 0.99995005}
   m_LocalPosition: {x: -6.52, y: -0.26, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -13720,8 +13721,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 31.53, y: 1.48}
-  m_SizeDelta: {x: 7.823, y: 2.0749}
+  m_AnchoredPosition: {x: 32.247833, y: 1.48}
+  m_SizeDelta: {x: 9.2587, y: 2.0749}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1352837846
 MonoBehaviour:
@@ -14024,8 +14025,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00000034273, y: -0.000000047497}
-  m_SizeDelta: {x: 7.823, y: 2.0749}
+  m_AnchoredPosition: {x: -0.000014395, y: -0.000000047497}
+  m_SizeDelta: {x: 9.2587, y: 2.0749}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1419469367
 MonoBehaviour:
@@ -14047,7 +14048,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Here's a group of them, try to kill them all.
+  m_text: Here's a group of enemies, try to kill them all.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

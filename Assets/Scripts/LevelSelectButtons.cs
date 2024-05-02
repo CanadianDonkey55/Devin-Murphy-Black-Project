@@ -16,8 +16,6 @@ public class LevelSelectButtons : MonoBehaviour
     public bool lvl9 = false;
     public bool lvl10 = false;
 
-    public ContinueLoader loader;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +32,7 @@ public class LevelSelectButtons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ContinueLoader loader = FindObjectOfType<ContinueLoader>();
         if (lvl1)
         {
             gameObject.GetComponent<Button>().interactable = true;

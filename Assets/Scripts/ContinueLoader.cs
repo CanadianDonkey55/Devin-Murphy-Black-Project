@@ -9,6 +9,8 @@ public class ContinueLoader : MonoBehaviour
     public bool onLevel;
     public ContinueLoader sceneManagement;
 
+    private static GameObject sampleInstance;
+
     [Header("Bools")]
     public bool lvl1Done = false;
     public bool lvl2Done = false;
@@ -24,8 +26,14 @@ public class ContinueLoader : MonoBehaviour
     {
         if (onLevel == false)
         {
+            if (sampleInstance != null)
+            {
+                Destroy(sampleInstance);
+            }
+            sampleInstance = gameObject;
             DontDestroyOnLoad(gameObject);
         }
+
     }
 
     private void Start()
@@ -43,7 +51,26 @@ public class ContinueLoader : MonoBehaviour
         {
             ContinueLoader loaders = FindObjectOfType<ContinueLoader>();
             loaders.sceneNumber = sceneNumber;
-            
+            if (lvl1Done)
+            {
+                loaders.lvl1Done = true;
+            }
+        }
+
+        if (onLevel == false)
+        {
+            ContinueLoader[] loaders = FindObjectsOfType<ContinueLoader>();
+            foreach (ContinueLoader go in loaders)
+            {
+                if (go.gameObject != gameObject && lvl1Done && go.onLevel == false)
+                {
+                    Destroy(go);
+                }
+                else
+                {
+                    return;
+                }
+            }      
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class EndLvl1 : MonoBehaviour
 {
     public GameObject LevelComplete;
+    public ContinueLoader continueLoader; 
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class EndLvl1 : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             LevelComplete.SetActive(true);
+            continueLoader.lvl1Done = true;
         }
     }
 }
