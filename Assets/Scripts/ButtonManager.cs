@@ -47,6 +47,11 @@ public class ButtonManager : MonoBehaviour
         optionsScreen.SetActive(false);
     }
 
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
 
     // Level Loading
     public void LoadLevel1()

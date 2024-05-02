@@ -36,6 +36,5 @@ public class EnemyBulletMove : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        Debug.Log("hi");
     }
 }
