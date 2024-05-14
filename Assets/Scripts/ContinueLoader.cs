@@ -26,7 +26,7 @@ public class ContinueLoader : MonoBehaviour
     {
         if (onLevel == false)
         {
-            if (sampleInstance != null)
+            if (sampleInstance == null)
             {
                 Destroy(sampleInstance);
             }
