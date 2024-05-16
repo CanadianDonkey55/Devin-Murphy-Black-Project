@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float bulletDamage = 7f;
 
     public Slider healthBar;
+    public bool resettingScene;
 
     private void Update()
     {
@@ -53,5 +54,10 @@ public class PlayerHealth : MonoBehaviour
                 health = 0;
             }
         }
+    }
+
+    public void ResetScene()
+    {
+        resettingScene = true;
     }
 }

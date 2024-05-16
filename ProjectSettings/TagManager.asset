@@ -10,6 +10,7 @@ TagManager:
   - BossEnemy
   - RangedEnemy
   - EnemyBullet
+  - Pitfall
   layers:
   - Default
   - TransparentFX
