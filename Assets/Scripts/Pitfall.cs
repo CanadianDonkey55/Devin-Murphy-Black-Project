@@ -25,6 +25,8 @@ public class Pitfall : MonoBehaviour
         {
             Debug.Log("hehehehaw");
             collision.gameObject.GetComponentInParent<Animator>().SetBool("falling", true);
+            PlayerMovement playerMovement = collision.gameObject.GetComponentInParent<PlayerMovement>();
+            playerMovement.enabled = false;
 
             if (collision.gameObject.GetComponentInParent<PlayerHealth>().resettingScene == true)
             {
