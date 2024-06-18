@@ -433,7 +433,6 @@ MonoBehaviour:
   lvl8: 0
   lvl9: 0
   lvl10: 1
-  loader: {fileID: 1553168871}
 --- !u!1 &372105809
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,7 +741,6 @@ MonoBehaviour:
   lvl8: 0
   lvl9: 0
   lvl10: 0
-  loader: {fileID: 1553168871}
 --- !u!1 &450869153
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,7 +914,6 @@ MonoBehaviour:
   lvl8: 0
   lvl9: 0
   lvl10: 0
-  loader: {fileID: 1553168871}
 --- !u!1 &510837928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,7 +1427,6 @@ MonoBehaviour:
   lvl8: 0
   lvl9: 0
   lvl10: 0
-  loader: {fileID: 1553168871}
 --- !u!1 &740645142
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,7 +1600,6 @@ MonoBehaviour:
   lvl8: 0
   lvl9: 1
   lvl10: 0
-  loader: {fileID: 1553168871}
 --- !u!1 &783981752
 GameObject:
   m_ObjectHideFlags: 0
@@ -2770,7 +2765,6 @@ MonoBehaviour:
   lvl8: 0
   lvl9: 0
   lvl10: 0
-  loader: {fileID: 1553168871}
 --- !u!1 &1149320040
 GameObject:
   m_ObjectHideFlags: 0
@@ -3484,7 +3478,6 @@ MonoBehaviour:
   lvl8: 1
   lvl9: 0
   lvl10: 0
-  loader: {fileID: 1553168871}
 --- !u!1 &1496072087
 GameObject:
   m_ObjectHideFlags: 0
@@ -3793,7 +3786,6 @@ MonoBehaviour:
   lvl8: 0
   lvl9: 0
   lvl10: 0
-  loader: {fileID: 1553168871}
 --- !u!1 &1498749734
 GameObject:
   m_ObjectHideFlags: 0
@@ -4182,17 +4174,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1508226964}
   m_CullTransparentMesh: 1
---- !u!114 &1553168871 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 439915807067593539, guid: ed4ffa164e53df140b1c4acc78d68f4e, type: 3}
-  m_PrefabInstance: {fileID: 439915807687988532}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5c7909d6abb914479c3668e84223bd9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1606889549
 GameObject:
   m_ObjectHideFlags: 0
@@ -4366,7 +4347,6 @@ MonoBehaviour:
   lvl8: 0
   lvl9: 0
   lvl10: 0
-  loader: {fileID: 1553168871}
 --- !u!1 &1653797622
 GameObject:
   m_ObjectHideFlags: 0
@@ -4872,7 +4852,6 @@ MonoBehaviour:
   lvl8: 0
   lvl9: 0
   lvl10: 0
-  loader: {fileID: 1553168871}
 --- !u!1 &1977822834
 GameObject:
   m_ObjectHideFlags: 0
@@ -5064,7 +5043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2132148317
 RectTransform:
   m_ObjectHideFlags: 0
