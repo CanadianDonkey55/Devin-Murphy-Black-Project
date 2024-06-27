@@ -76,10 +76,10 @@ public class RangedEnemy : MonoBehaviour
 
             }
         }
-            else 
+        else 
         {
             agent.SetDestination(transform.position);
-            
+            locateDistance = resetDistance;
         }
     }
 

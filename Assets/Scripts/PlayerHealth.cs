@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public float health = 100f;
     [SerializeField] float basicEnemyDamage = 5f;
     [SerializeField] float bossEnemyDamage = 10f;
+    [SerializeField] float miniBossEnemyDamage = 7f;
     [SerializeField] float bulletDamage = 7f;
 
     public Slider healthBar;
@@ -49,6 +50,14 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.tag == "EnemyBullet")
         {
             TakeDamage(bulletDamage);
+            if (health <= 0)
+            {
+                health = 0;
+            }
+        }
+        if (collision.gameObject.tag == "MiniBossEnemy")
+        {
+            TakeDamage(miniBossEnemyDamage);
             if (health <= 0)
             {
                 health = 0;
