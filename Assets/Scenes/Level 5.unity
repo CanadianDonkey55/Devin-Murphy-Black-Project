@@ -13107,6 +13107,10 @@ PrefabInstance:
       propertyPath: tilemap
       value: 
       objectReference: {fileID: 220443173}
+    - target: {fileID: 7482615280535748801, guid: aeb087a625a20164389ba3ed300eba4f, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeb087a625a20164389ba3ed300eba4f, type: 3}
 --- !u!4 &1919881445 stripped

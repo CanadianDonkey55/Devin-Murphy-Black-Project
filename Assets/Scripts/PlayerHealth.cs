@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float bossEnemyDamage = 10f;
     [SerializeField] float miniBossEnemyDamage = 7f;
     [SerializeField] float bulletDamage = 7f;
+    [SerializeField] float lazerbeamDamage = 9f;
 
     public Slider healthBar;
     public bool resettingScene;
@@ -58,6 +59,14 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.tag == "MiniBossEnemy")
         {
             TakeDamage(miniBossEnemyDamage);
+            if (health <= 0)
+            {
+                health = 0;
+            }
+        }
+        if (collision.gameObject.tag == "Lazerbeam")
+        {
+            TakeDamage(lazerbeamDamage);
             if (health <= 0)
             {
                 health = 0;

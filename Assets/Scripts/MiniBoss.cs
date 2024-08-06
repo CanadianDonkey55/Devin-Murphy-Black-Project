@@ -39,6 +39,8 @@ public class MiniBoss : MonoBehaviour
     void Update()
     {
         FollowPlayer();
+        Debug.Log(shootCooldown);
+        Debug.Log(shootingCooldown);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -87,6 +89,7 @@ public class MiniBoss : MonoBehaviour
 
         if (shootCooldown <= 0)
         {
+            beam.SetActive(false);
             shootingCooldown -= Time.deltaTime;
         }
 
@@ -96,5 +99,4 @@ public class MiniBoss : MonoBehaviour
             shootingCooldown = 6f;
         }
     }
-
 }
