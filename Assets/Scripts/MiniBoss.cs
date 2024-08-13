@@ -41,6 +41,7 @@ public class MiniBoss : MonoBehaviour
         FollowPlayer();
         Debug.Log(shootCooldown);
         Debug.Log(shootingCooldown);
+        dirRot();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,6 +60,7 @@ public class MiniBoss : MonoBehaviour
     public void FollowPlayer()
     {
         float distance = (target.position - transform.position).magnitude;
+        
         if (distance <= locateDistance)
         {
             if (distance > shootDistance || health > 150)
@@ -85,6 +87,8 @@ public class MiniBoss : MonoBehaviour
         {
             beam.SetActive(true);
             shootCooldown -= Time.deltaTime;
+            dir = (target.position - transform.position).normalized;
+            dirRot();
         }
 
         if (shootCooldown <= 0)
@@ -97,6 +101,64 @@ public class MiniBoss : MonoBehaviour
         {
             shootCooldown = 2f;
             shootingCooldown = 6f;
+        }
+    }
+
+    private void dirRot()
+    {
+        //GameObject bulletImage = bullet.transform.GetChild(0).gameObject;
+        var distance = dir.magnitude;
+        var direction = dir / distance;
+
+        float m_Angle = Vector2.Angle(new Vector2(1, 0), direction);
+
+
+        if (target.transform.position.y > transform.position.y)
+        {
+            if (m_Angle > 0 && m_Angle < 22.5)
+            {
+                beam.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else if (m_Angle > 22.5 && m_Angle < 67.5)
+            {
+                beam.transform.rotation = Quaternion.Euler(0, 0, 45);
+            }
+            else if (m_Angle > 67.5 && m_Angle < 112.5)
+            {
+                beam.transform.rotation = Quaternion.Euler(0, 0, 90);
+            }
+            else if (m_Angle > 112.5 && m_Angle < 157.5)
+            {
+                beam.transform.rotation = Quaternion.Euler(0, 0, 135);
+            }
+            else if (m_Angle > 157.5 && m_Angle < 180)
+            {
+                beam.transform.rotation = Quaternion.Euler(0, 0, 180);
+            }
+        }
+
+        else if (target.transform.position.y < transform.position.y)
+        {
+            if (m_Angle > 0 && m_Angle < 22.5)
+            {
+                beam.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+            else if (m_Angle > 22.5 && m_Angle < 67.5)
+            {
+                beam.transform.rotation = Quaternion.Euler(0, 0, -45);
+            }
+            else if (m_Angle > 67.5 && m_Angle < 112.5)
+            {
+                beam.transform.rotation = Quaternion.Euler(0, 0, -90);
+            }
+            else if (m_Angle > 112.5 && m_Angle < 157.5)
+            {
+                beam.transform.rotation = Quaternion.Euler(0, 0, -135);
+            }
+            else if (m_Angle > 157.5 && m_Angle < 180)
+            {
+                beam.transform.rotation = Quaternion.Euler(0, 0, -180);
+            }
         }
     }
 }
