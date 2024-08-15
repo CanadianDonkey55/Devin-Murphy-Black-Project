@@ -7532,7 +7532,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931856244}
-  m_LocalRotation: {x: -0.00999849, y: 5.376727e-10, z: 5.3761843e-12, w: 0.99995005}
+  m_LocalRotation: {x: -0.00999849, y: -5.3767235e-10, z: -5.376181e-12, w: 0.99995005}
   m_LocalPosition: {x: 95.02, y: -7.44, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8165,7 +8165,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162508404}
-  m_LocalRotation: {x: -0.00999849, y: 5.376727e-10, z: 5.3761843e-12, w: 0.99995005}
+  m_LocalRotation: {x: -0.00999849, y: -5.3767235e-10, z: -5.376181e-12, w: 0.99995005}
   m_LocalPosition: {x: 95.02, y: -7.44, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -37117,7 +37117,7 @@ MonoBehaviour:
   m_VoxelSize: 0.16666667
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: 659df82b7f5ed384983ce378b02c8181, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: d945a157e8cb2134d8b161b717105879, type: 2}
 --- !u!4 &1956018472
 Transform:
   m_ObjectHideFlags: 0
@@ -37145,6 +37145,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1573209930, guid: 713355216b93d164d8bc2d147b1c3020, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6855320276418968902, guid: 713355216b93d164d8bc2d147b1c3020, type: 3}
       propertyPath: m_Pivot.x
       value: 0

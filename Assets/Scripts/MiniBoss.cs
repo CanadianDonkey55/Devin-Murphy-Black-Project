@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.AI;
+using UnityEngine.Tilemaps;
 
 public class MiniBoss : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] GameObject beam;
+    [SerializeField] Tilemap door;
 
     public Slider healthBar;
 
@@ -52,6 +54,7 @@ public class MiniBoss : MonoBehaviour
             healthBar.value = health;
             if (health <= 0)
             {
+                door.enabled = false;
                 Destroy(gameObject);
             }
         }
@@ -63,21 +66,23 @@ public class MiniBoss : MonoBehaviour
         
         if (distance <= locateDistance)
         {
-            if (distance > shootDistance || health > 150)
+            if (distance > shootDistance && health < 150)
+            {   
+                agent.SetDestination(transform.position);
+                ShootPlayer();
+            }
+            else if (distance <= shootDistance || health > 150)
             {
                 agent.SetDestination(target.position);
                 locateDistance = locatedDistance;
-            }
-            else if (distance <= shootDistance && health < 150)
-            {
-                agent.SetDestination(transform.position);
-                ShootPlayer();
+                beam.SetActive(false);
             }
         }
         else
         {
             agent.SetDestination(transform.position);
             locateDistance = resetDistance;
+            beam.SetActive(false);
         }
     }
 
