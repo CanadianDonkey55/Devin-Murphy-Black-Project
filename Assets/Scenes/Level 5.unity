@@ -701,16 +701,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 126, y: -16, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 2
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 150, y: -16, z: 0}
     second:
       serializedVersion: 2
@@ -2191,8 +2181,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 795465399231d024c8e74b952e51ef59, type: 2}
   - m_RefCount: 22
     m_Data: {fileID: 11400000, guid: 1ff12ecf63096034193b4a1e4a5dfbc2, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: f3333a5001dd0c3469318c524ad3cab4, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 140
     m_Data: {fileID: 11400000, guid: f3a62a3a19213dd4f87606767d8f6aaf, type: 2}
   m_TileSpriteArray:
@@ -2204,12 +2194,12 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: d98c322ce5be901438c9bacdeddafc38, type: 3}
   - m_RefCount: 22
     m_Data: {fileID: 21300000, guid: 954275137bf6514469e97a707f66bf53, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: bd71c2bdd43b5a84487af6900bf727fc, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 140
     m_Data: {fileID: 21300000, guid: c75fe0aa73694f8489545a66d380f731, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 185
+  - m_RefCount: 184
     m_Data:
       e00: 1
       e01: 0
@@ -2232,7 +2222,7 @@ Tilemap:
     m_Data: {r: 5.2103e-41, g: 5.2103e-41, b: 5.2103e-41, a: 5.2103e-41}
   - m_RefCount: 0
     m_Data: {r: 3.8866e-41, g: 3.8866e-41, b: 3.8866e-41, a: 3.8866e-41}
-  - m_RefCount: 185
+  - m_RefCount: 184
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -11359,19 +11349,11 @@ PrefabInstance:
     - target: {fileID: 2144836759, guid: 1adac1879410a4e4ab13a613f0d5fbb6, type: 3}
       propertyPath: door
       value: 
-      objectReference: {fileID: 1399013551}
+      objectReference: {fileID: 1399013547}
     - target: {fileID: 2144836759, guid: 1adac1879410a4e4ab13a613f0d5fbb6, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 1919881445}
-    - target: {fileID: 2144836759, guid: 1adac1879410a4e4ab13a613f0d5fbb6, type: 3}
-      propertyPath: shootDistance
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 103949542996353480, guid: 1adac1879410a4e4ab13a613f0d5fbb6, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 103949542996353480, guid: 1adac1879410a4e4ab13a613f0d5fbb6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 134.57
@@ -12384,17 +12366,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1599705520}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.03725731}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 48195299}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 42.66, y: -9.75}
-  m_SizeDelta: {x: 15.0883, y: 4.039}
+  m_AnchoredPosition: {x: 124.5916, y: -14.587}
+  m_SizeDelta: {x: 12.1635, y: 5.9584}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1599705522
 BoxCollider2D:
@@ -12428,7 +12410,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 3.5505638, y: 0.010261774}
+  m_Offset: {x: 2.727974, y: 0.010261774}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -12439,7 +12421,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.977989, y: 4.016951}
+  m_Size: {x: 6.60701, y: 4.016951}
   m_EdgeRadius: 0
 --- !u!114 &1599705523
 MonoBehaviour:
@@ -12468,7 +12450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.2924528, g: 0.2924528, b: 0.2924528, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

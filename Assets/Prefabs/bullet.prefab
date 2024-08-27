@@ -105,6 +105,8 @@ MonoBehaviour:
   - BasicEnemy
   - BossEnemy
   - RangedEnemy
+  - MiniBossEnemy
+  - BossEnemy
   playerDirection: {x: 0, y: 0, z: 0}
 --- !u!61 &-6239804077065060956
 BoxCollider2D:

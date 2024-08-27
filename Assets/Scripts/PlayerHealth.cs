@@ -40,7 +40,7 @@ public class PlayerHealth : MonoBehaviour
                 health = 0;
             }
         }
-        if (collision.gameObject.tag == "BossEnemy")
+        if (collision.gameObject.tag == "FinalBossEnemy")
         {
             TakeDamage(bossEnemyDamage);
             if (health <= 0)

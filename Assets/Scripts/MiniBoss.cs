@@ -9,7 +9,7 @@ public class MiniBoss : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] GameObject beam;
-    [SerializeField] Tilemap door;
+    [SerializeField] GameObject door;
 
     public Slider healthBar;
 
@@ -54,7 +54,7 @@ public class MiniBoss : MonoBehaviour
             healthBar.value = health;
             if (health <= 0)
             {
-                door.enabled = false;
+                door.SetActive(false);
                 Destroy(gameObject);
             }
         }

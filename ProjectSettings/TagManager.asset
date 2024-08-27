@@ -13,6 +13,7 @@ TagManager:
   - Pitfall
   - MiniBossEnemy
   - Lazerbeam
+  - FinalBossEnemy
   layers:
   - Default
   - TransparentFX

@@ -614,17 +614,13 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2321092903696888481, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 931856248}
     - target: {fileID: 5754356610225672848, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
       propertyPath: m_Name
       value: Ranged Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5754356610225672848, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5754356610225672854, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
-      propertyPath: m_RootOrder
-      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 5754356610225672854, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -785,17 +781,13 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2321092903696888481, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 931856248}
     - target: {fileID: 5754356610225672848, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
       propertyPath: m_Name
       value: Ranged Enemy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5754356610225672848, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5754356610225672854, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
-      propertyPath: m_RootOrder
-      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 5754356610225672854, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2503,6 +2495,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2321092903486334862, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2321092903696888481, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 931856248}
+    - target: {fileID: 2321092903696888482, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5754356610225672848, guid: 74eb0ada789aa314dabe807c94b8eef4, type: 3}
