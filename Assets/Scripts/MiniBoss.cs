@@ -10,6 +10,8 @@ public class MiniBoss : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] GameObject beam;
     [SerializeField] GameObject door;
+    [SerializeField] ParticleSystem death;
+    [SerializeField] BossDeathParticles particles;
 
     public Slider healthBar;
 
@@ -55,6 +57,8 @@ public class MiniBoss : MonoBehaviour
             if (health <= 0)
             {
                 door.SetActive(false);
+                death.Play(true);
+                particles.bossDead = true;
                 Destroy(gameObject);
             }
         }

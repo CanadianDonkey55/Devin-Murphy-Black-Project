@@ -13,24 +13,46 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float bulletDamage = 7f;
     [SerializeField] float lazerbeamDamage = 9f;
 
+    public float damageTimer = 1.5f; 
+
     public Slider healthBar;
     public bool resettingScene;
 
+    bool takingDamage = false;
+
     private void Update()
     {
+        Debug.Log(damageTimer);
         if (health <= 0)
         {
             SceneManager.LoadScene(1);
+        }
+
+        if (takingDamage == true)
+        {
+            damageTimer -= Time.deltaTime;
+        }
+
+        if (damageTimer <= 0)
+        {
+            takingDamage = false;
+            damageTimer = 1.5f;
         }
     }
 
     private void TakeDamage(float damageTaken)
     {
-        health = health - damageTaken;
-        healthBar.value = health;
+        if (damageTimer == 1.5f && takingDamage == false)
+        {
+            health = health - damageTaken;
+            healthBar.value = health;
+            takingDamage = true;
+        } 
+        
+        
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "BasicEnemy")
         {
