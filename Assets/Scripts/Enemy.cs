@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class Enemy : MonoBehaviour
 {
@@ -21,11 +22,14 @@ public class Enemy : MonoBehaviour
 
     private Vector2 dir;
 
-    [Header("Sprites")]
-    public Sprite front;
-    public Sprite back;
-    public Sprite left;
-    public Sprite right;
+    [Header("Animation stuff")]
+    public float horizontalSpeed;
+    public float verticalSpeed;
+    public Animator enemyAnim;
+    //public Sprite front;
+    //public Sprite back;
+    //public Sprite left;
+    //public Sprite right;
     //public Sprite upleft;
     //public Sprite upright;
     //public Sprite downleft;
@@ -69,11 +73,13 @@ public class Enemy : MonoBehaviour
         {
             agent.SetDestination(target.position);
             locateDistance = locatedDistance;
+            dirRot();
         }
         else
         {
             agent.SetDestination(transform.position);
             locateDistance = resetDistance;
+            enemyAnim.SetBool("walking", false);
         }
     }
 
@@ -89,7 +95,10 @@ public class Enemy : MonoBehaviour
         {
             if (m_Angle > 0 && m_Angle < 22.5)
             {
-                renderer.sprite = right;
+                enemyAnim.SetFloat("horizontalSpeed", 1f);
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+                enemyAnim.SetBool("walking", true);
+                Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
@@ -97,7 +106,10 @@ public class Enemy : MonoBehaviour
             }
             else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
-                renderer.sprite = back;
+                enemyAnim.SetFloat("verticalSpeed", 1f);
+                enemyAnim.SetFloat("horizontalSpeed", 0f);
+                enemyAnim.SetBool("walking", true);
+                Debug.Log(enemyAnim.GetFloat("verticalSpeed"));
             }
             else if (m_Angle > 112.5 && m_Angle < 157.5)
             {
@@ -105,7 +117,10 @@ public class Enemy : MonoBehaviour
             }
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
-                renderer.sprite = left;
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+                enemyAnim.SetFloat("horizontalSpeed", -1f);
+                enemyAnim.SetBool("walking", true);
+                Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
             }
         }
 
@@ -113,7 +128,10 @@ public class Enemy : MonoBehaviour
         {
             if (m_Angle > 0 && m_Angle < 22.5)
             {
-                renderer.sprite = right;
+                enemyAnim.SetFloat("horizontalSpeed", 1f);
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+                enemyAnim.SetBool("walking", true);
+                Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
@@ -121,7 +139,10 @@ public class Enemy : MonoBehaviour
             }
             else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
-                renderer.sprite = front;
+                enemyAnim.SetFloat("verticalSpeed", -1f);
+                enemyAnim.SetFloat("horizontalSpeed", 0f);
+                enemyAnim.SetBool("walking", true);
+                Debug.Log(enemyAnim.GetFloat("verticalSpeed"));
             }
             else if (m_Angle > 112.5 && m_Angle < 157.5)
             {
@@ -129,7 +150,10 @@ public class Enemy : MonoBehaviour
             }
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
-                renderer.sprite = left;
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+                enemyAnim.SetFloat("horizontalSpeed", -1f);
+                enemyAnim.SetBool("walking", true);
+                Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
             }
         }
     }

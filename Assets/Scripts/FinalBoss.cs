@@ -9,7 +9,9 @@ public class FinalBoss : MonoBehaviour
 {
     [SerializeField] Transform target;
     [SerializeField] GameObject beam;
-    [SerializeField] Tilemap door;
+    [SerializeField] GameObject door;
+    [SerializeField] ParticleSystem death;
+    [SerializeField] BossDeathParticles particles;
 
     public Slider healthBar;
 
@@ -54,7 +56,9 @@ public class FinalBoss : MonoBehaviour
             healthBar.value = health;
             if (health <= 0)
             {
-                door.enabled = false;
+                door.SetActive(false);
+                death.Play(true);
+                particles.bossDead = true;
                 Destroy(gameObject);
             }
         }
@@ -66,12 +70,12 @@ public class FinalBoss : MonoBehaviour
 
         if (distance <= locateDistance)
         {
-            if (distance > shootDistance && health < 150)
+            if (distance > shootDistance && health < health/2)
             {
                 agent.SetDestination(transform.position);
                 ShootPlayer();
             }
-            else if (distance <= shootDistance || health > 150)
+            else if (distance <= shootDistance || health > health/2)
             {
                 agent.SetDestination(target.position);
                 locateDistance = locatedDistance;

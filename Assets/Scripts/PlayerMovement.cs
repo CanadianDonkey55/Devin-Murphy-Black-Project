@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Sprites")]
     private new SpriteRenderer renderer;
+    public SpriteRenderer gunRenderer;
     public Sprite back;
     public Sprite front;
     public Sprite left;
@@ -27,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
     public Sprite backLeft;
     public Sprite frontRight;
     public Sprite frontLeft;
+    public Sprite gunNormal;
+    public Sprite gunAbove;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
         if (horizontalInput > 0)
         {
             InputMax = 1;
+            gunRenderer.sprite = gunNormal;
             Directional(right, new Vector3(0, 0, 0), new Vector3(0, 0, 0), false, new Vector3(0.281f, -0.063f, 0));           
             Gun.transform.localScale = new Vector3(Mathf.Abs(Gun.transform.localScale.x), Gun.transform.localScale.y, Gun.transform.localScale.z);
             Gun.GetComponent<SpriteRenderer>().sortingOrder = 101;           
@@ -62,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
         else if (horizontalInput < 0)
         {
             InputMax = -1;
+            gunRenderer.sprite = gunNormal;
             Directional(left, new Vector3(0, 0, 0), new Vector3(0, 0, 0), false, new Vector3(-0.281f, -0.063f, 0));
             Gun.transform.localScale = new Vector3(-Mathf.Abs(Gun.transform.localScale.x), Gun.transform.localScale.y, Gun.transform.localScale.z);
             Gun.GetComponent<SpriteRenderer>().sortingOrder = 99; 
@@ -70,7 +75,8 @@ public class PlayerMovement : MonoBehaviour
         if (verticalInput > 0)
         {
             InputMax = 1;
-            Directional(back, new Vector3(0, 0, 90), new Vector3(0, 0, 90), true, new Vector3(0.433f, 0.031f, 0));
+            gunRenderer.sprite = gunAbove;
+            Directional(back, new Vector3(0, 0, 180), new Vector3(0, 0, 90), true, new Vector3(0.433f, 0.031f, 0));
             Gun.transform.localScale = new Vector3(Mathf.Abs(Gun.transform.localScale.x), Gun.transform.localScale.y, Gun.transform.localScale.z);
             Gun.GetComponent<SpriteRenderer>().sortingOrder = 99;
             
@@ -78,28 +84,33 @@ public class PlayerMovement : MonoBehaviour
         else if (verticalInput < 0)
         {
             InputMax = -1;
-            Directional(front, new Vector3(0, 0, -90), new Vector3(0, 0, 90), true, new Vector3(-0.375f, -0.3f, 0));
+            gunRenderer.sprite = gunAbove;
+            Directional(front, new Vector3(0, 0, 0), new Vector3(0, 0, 90), true, new Vector3(-0.375f, -0.3f, 0));
             Gun.transform.localScale = new Vector3(Mathf.Abs(Gun.transform.localScale.x), Gun.transform.localScale.y, Gun.transform.localScale.z);
             Gun.GetComponent<SpriteRenderer>().sortingOrder = 101;         
         }
 
         if (horizontalInput > 0 && verticalInput > 0)
         {
+            gunRenderer.sprite = gunNormal;
             Directional(backRight, new Vector3(0, 0, 45), new Vector3(0, 0, 45), false, new Vector3(0.315f, -0.05f, 0));
             Gun.GetComponent<SpriteRenderer>().sortingOrder = 101;
         }
         if (horizontalInput < 0 && verticalInput > 0)
         {
+            gunRenderer.sprite = gunNormal;
             Directional(backLeft, new Vector3(0, 0, 135), new Vector3(0, 0, 135), true, new Vector3(0.289f, 0.006f, 0));
             Gun.GetComponent<SpriteRenderer>().sortingOrder = 99;
         }
         if (horizontalInput > 0 && verticalInput < 0)
         {
+            gunRenderer.sprite = gunNormal;
             Directional(frontRight, new Vector3(0, 0, -45), new Vector3(0, 0, 135), false, new Vector3(0.06f, -0.171f, 0));
             Gun.GetComponent<SpriteRenderer>().sortingOrder = 101;
         }
         if (horizontalInput < 0 && verticalInput < 0)
         {
+            gunRenderer.sprite = gunNormal;
             Directional(frontLeft, new Vector3(0, 0, -135), new Vector3(0, 0, 45), true, new Vector3(-0.412f, -0.191f, 0));
             Gun.GetComponent<SpriteRenderer>().sortingOrder = 99;
         }

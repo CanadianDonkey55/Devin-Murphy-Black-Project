@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(damageTimer);
+        //Debug.Log(damageTimer);
         if (health <= 0)
         {
             SceneManager.LoadScene(1);
@@ -32,28 +32,27 @@ public class PlayerHealth : MonoBehaviour
         {
             damageTimer -= Time.deltaTime;
         }
-
-        if (damageTimer <= 0)
-        {
-            takingDamage = false;
-            damageTimer = 1.5f;
-        }
     }
 
     private void TakeDamage(float damageTaken)
     {
         if (damageTimer == 1.5f && takingDamage == false)
         {
+            takingDamage = true;
             health = health - damageTaken;
             healthBar.value = health;
-            takingDamage = true;
         } 
-        
-        
-    }
 
+        if (damageTimer <= 0)
+        {
+            takingDamage = false;
+            damageTimer = 1.5f;    
+        }
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
+        Debug.Log("qwerty");
+        gameObject.transform.position = gameObject.transform.position += Vector3.one * 0.0001f;
         if (collision.gameObject.tag == "BasicEnemy")
         {
             TakeDamage(basicEnemyDamage);
@@ -69,15 +68,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 health = 0;
             }
-        }
-        if (collision.gameObject.tag == "EnemyBullet")
-        {
-            TakeDamage(bulletDamage);
-            if (health <= 0)
-            {
-                health = 0;
-            }
-        }
+        }    
         if (collision.gameObject.tag == "MiniBossEnemy")
         {
             TakeDamage(miniBossEnemyDamage);
@@ -89,6 +80,20 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.tag == "Lazerbeam")
         {
             TakeDamage(lazerbeamDamage);
+            if (health <= 0)
+            {
+                health = 0;
+            }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "EnemyBullet")
+        {
+            Debug.Log("health");
+            health = health - bulletDamage;
+            healthBar.value = health;
             if (health <= 0)
             {
                 health = 0;

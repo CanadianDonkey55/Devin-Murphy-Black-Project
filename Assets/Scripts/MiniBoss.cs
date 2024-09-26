@@ -43,8 +43,8 @@ public class MiniBoss : MonoBehaviour
     void Update()
     {
         FollowPlayer();
-        Debug.Log(shootCooldown);
-        Debug.Log(shootingCooldown);
+       // Debug.Log(shootCooldown);
+        //Debug.Log(shootingCooldown);
         dirRot();
     }
 

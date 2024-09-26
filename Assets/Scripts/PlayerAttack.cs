@@ -46,6 +46,10 @@ public class PlayerAttack : MonoBehaviour
             ammoText.text = ammo + "/20";
             shootCooldown = startingShootCooldown;
         }
+        if (ammo <= 0)
+        {
+            isReloading = true;
+        }
         if (Input.GetKeyDown(KeyCode.R))
         {
             isReloading = true;      

@@ -33,6 +33,7 @@ public class EnemyBulletMove : MonoBehaviour
         {
             if (collision.gameObject.tag == tags[i])
             {
+                Debug.Log("bullet");
                 Destroy(gameObject);
             }
         }

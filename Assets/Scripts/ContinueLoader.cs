@@ -55,6 +55,39 @@ public class ContinueLoader : MonoBehaviour
             {
                 loaders.lvl1Done = true;
             }
+            if (lvl2Done)
+            {
+                loaders.lvl2Done = true;
+            }
+            if (lvl3Done)
+            {
+                loaders.lvl3Done = true;
+            }
+            if (lvl4Done)
+            {
+                loaders.lvl4Done = true;
+            }
+            if (lvl5Done)
+            {
+                loaders.lvl5Done = true;
+            }
+            if (lvl6Done)
+            {
+                loaders.lvl6Done = true;
+            }
+            if (lvl7Done)
+            {
+                loaders.lvl7Done = true;
+            }
+            if (lvl8Done)
+            {
+                loaders.lvl8Done = true;
+            }
+            if (lvl9Done)
+            {
+                loaders.lvl9Done = true;
+            }
+
         }
 
         if (onLevel == false)

@@ -31,6 +31,11 @@ public class RangedEnemy : MonoBehaviour
 
     private Vector2 dir;
 
+    [Header("Animation stuff")]
+    public float horizontalSpeed;
+    public float verticalSpeed;
+    public Animator enemyAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +49,7 @@ public class RangedEnemy : MonoBehaviour
     void Update()
     {
         FollowPlayer();
+        Debug.Log(enemyAnim.GetBool("walking"));
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -68,18 +74,20 @@ public class RangedEnemy : MonoBehaviour
             {
                 agent.SetDestination(target.position);
                 locateDistance = locatedDistance;
+                animDirRot();
             }
             else if (distance <= shootDistance)
             {
                 agent.SetDestination(transform.position);
                 ShootPlayer();
-
+                enemyAnim.SetBool("walking", false);
             }
         }
         else 
         {
             agent.SetDestination(transform.position);
             locateDistance = resetDistance;
+            enemyAnim.SetBool("walking", false);
         }
     }
 
@@ -95,6 +103,81 @@ public class RangedEnemy : MonoBehaviour
         }
 
         shootCooldown -= Time.deltaTime;
+    }
+
+    private void animDirRot()
+    {
+        dir = (target.position - transform.position).normalized;
+        var distance = dir.magnitude;
+        var direction = dir / distance;
+
+        float m_Angle = Vector2.Angle(new Vector2(1, 0), direction);
+
+        if (target.transform.position.y > transform.position.y)
+        {
+            if (m_Angle > 0 && m_Angle < 22.5)
+            {
+                enemyAnim.SetFloat("horizontalSpeed", 1f);
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+                enemyAnim.SetBool("walking", true);
+                Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
+            }
+            else if (m_Angle > 22.5 && m_Angle < 67.5)
+            {
+
+            }
+            else if (m_Angle > 67.5 && m_Angle < 112.5)
+            {
+                enemyAnim.SetFloat("verticalSpeed", 1f);
+                enemyAnim.SetFloat("horizontalSpeed", 0f);
+                enemyAnim.SetBool("walking", true);
+                Debug.Log(enemyAnim.GetFloat("verticalSpeed"));
+            }
+            else if (m_Angle > 112.5 && m_Angle < 157.5)
+            {
+
+            }
+            else if (m_Angle > 157.5 && m_Angle < 180)
+            {
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+                enemyAnim.SetFloat("horizontalSpeed", -1f);
+                enemyAnim.SetBool("walking", true);
+                Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
+            }
+        }
+
+        else if (target.transform.position.y < transform.position.y)
+        {
+            if (m_Angle > 0 && m_Angle < 22.5)
+            {
+                enemyAnim.SetFloat("horizontalSpeed", 1f);
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+                enemyAnim.SetBool("walking", true);
+                Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
+            }
+            else if (m_Angle > 22.5 && m_Angle < 67.5)
+            {
+
+            }
+            else if (m_Angle > 67.5 && m_Angle < 112.5)
+            {
+                enemyAnim.SetFloat("verticalSpeed", -1f);
+                enemyAnim.SetFloat("horizontalSpeed", 0f);
+                enemyAnim.SetBool("walking", true);
+                Debug.Log(enemyAnim.GetFloat("verticalSpeed"));
+            }
+            else if (m_Angle > 112.5 && m_Angle < 157.5)
+            {
+
+            }
+            else if (m_Angle > 157.5 && m_Angle < 180)
+            {
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+                enemyAnim.SetFloat("horizontalSpeed", -1f);
+                enemyAnim.SetBool("walking", true);
+                Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
+            }
+        }
     }
 
     private void dirRot()

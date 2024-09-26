@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c7909d6abb914479c3668e84223bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNumber: 2
+  sceneNumber: 3
   onLevel: 1
   sceneManagement: {fileID: 439915807067593539, guid: ed4ffa164e53df140b1c4acc78d68f4e, type: 3}
   lvl1Done: 0
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelComplete: {fileID: 1573209929}
-  continueLoader: {fileID: 0}
+  continueLoader: {fileID: 127594361}
 --- !u!61 &457241941
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2716,7 +2716,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 931856244}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0099985, y: 1.6651682e-16, z: 2.462808e-18, w: 0.99995005}
+  m_LocalRotation: {x: -0.009998499, y: -9.3127606e-10, z: -9.311828e-12, w: 0.99995005}
   m_LocalPosition: {x: 32.89, y: -0.17, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3663,7 +3663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162508404}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0099985, y: 1.6651682e-16, z: 2.462808e-18, w: 0.99995005}
+  m_LocalRotation: {x: -0.009998499, y: -9.3127606e-10, z: -9.311828e-12, w: 0.99995005}
   m_LocalPosition: {x: 32.89, y: -0.17, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0

@@ -2277,7 +2277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c7909d6abb914479c3668e84223bd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneNumber: 2
+  sceneNumber: 6
   onLevel: 1
   sceneManagement: {fileID: 439915807067593539, guid: ed4ffa164e53df140b1c4acc78d68f4e, type: 3}
   lvl1Done: 0
@@ -12517,7 +12517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelComplete: {fileID: 1642102467}
-  continueLoader: {fileID: 0}
+  continueLoader: {fileID: 106524859}
 --- !u!114 &1599705524
 MonoBehaviour:
   m_ObjectHideFlags: 0
