@@ -11,10 +11,13 @@ public class BulletMove : MonoBehaviour
 
     public Vector3 playerDirection;
 
+    public AudioClip enemyHit;
+    public float volume = 1f;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //enemyHit = gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
@@ -33,8 +36,9 @@ public class BulletMove : MonoBehaviour
         for (int i = 0; i < tags.Length; i++)
         {
             if (collision.gameObject.tag == tags[i])
-            {
+            {               
                 Destroy(gameObject);
+                AudioSource.PlayClipAtPoint(enemyHit, transform.position, volume);
             }
         }
     }

@@ -23,6 +23,7 @@ public class PlayerAttack : MonoBehaviour
     [Header("Shoot")]
     [SerializeField] float startingShootCooldown = 1.5f;
     float shootCooldown;
+    public AudioSource shootSound;
 
     GameObject FiredBullet;
 
@@ -41,6 +42,7 @@ public class PlayerAttack : MonoBehaviour
             var playerMovement = gameObject.GetComponent<PlayerMovement>();
             FiredBullet = Instantiate(bullet, bulletLocation.transform.position, playerMovement.bullet.transform.localRotation);
             muzzleFlash.Play();
+            shootSound.Play();
             FiredBullet.GetComponent<BulletMove>().playerDirection = new Vector2(playerMovement.InputMax, 0);
             ammo -= 1;
             ammoText.text = ammo + "/20";

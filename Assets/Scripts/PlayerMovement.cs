@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float verticalInput;
     public Animator playerAnimations;
     public AnimatorControllerParameter[] parameters;
+    public AudioClip[] footsteps;
 
     [Header("Shooting")]
     public float InputMax = 1;
@@ -49,6 +50,12 @@ public class PlayerMovement : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         rb.MovePosition((Vector2)transform.position + new Vector2(horizontalInput, verticalInput) * speed * Time.deltaTime);
+
+        AudioClip whichFootstep = footsteps[Random.Range(0, footsteps.Length)];
+        if (horizontalInput != 0 || verticalInput != 0)
+        {
+            AudioSource.PlayClipAtPoint(whichFootstep, transform.position, 1);
+        }
 
         GunCode();
     }
