@@ -5,6 +5,7 @@ using UnityEngine.Animations;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Walking")]
     private Rigidbody2D rb;
     public float speed = 5f;
     public float horizontalInput;
@@ -12,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     public Animator playerAnimations;
     public AnimatorControllerParameter[] parameters;
     public AudioClip[] footsteps;
+    public float footstepSoundCooldown = 0.2f;
+
 
     [Header("Shooting")]
     public float InputMax = 1;
@@ -37,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = this.gameObject.GetComponent<Rigidbody2D>();
         renderer = gameObject.GetComponent<SpriteRenderer>();
+        cooldown = footstepSoundCooldown;
     }
 
     // Update is called once per frame
@@ -51,11 +55,7 @@ public class PlayerMovement : MonoBehaviour
         verticalInput = Input.GetAxis("Vertical");
         rb.MovePosition((Vector2)transform.position + new Vector2(horizontalInput, verticalInput) * speed * Time.deltaTime);
 
-        AudioClip whichFootstep = footsteps[Random.Range(0, footsteps.Length)];
-        if (horizontalInput != 0 || verticalInput != 0)
-        {
-            AudioSource.PlayClipAtPoint(whichFootstep, transform.position, 1);
-        }
+        PlayWalkSound();
 
         GunCode();
     }
@@ -121,6 +121,21 @@ public class PlayerMovement : MonoBehaviour
             Directional(frontLeft, new Vector3(0, 0, -135), new Vector3(0, 0, 45), true, new Vector3(-0.412f, -0.191f, 0));
             Gun.GetComponent<SpriteRenderer>().sortingOrder = 99;
         }
+    }
+
+    float cooldown;
+
+    void PlayWalkSound()
+    {
+        AudioClip whichFootstep = footsteps[Random.Range(0, footsteps.Length)];
+
+        if ((horizontalInput != 0 || verticalInput != 0) && cooldown <= 0)
+        {
+            AudioSource.PlayClipAtPoint(whichFootstep, transform.position, 1);
+            cooldown = footstepSoundCooldown;
+        }
+
+        cooldown -= Time.deltaTime;
     }
 
     void Directional(Sprite characterSprite, Vector3 gunRot, Vector3 bulletRot, bool gunYFlip, Vector3 gunPos)

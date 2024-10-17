@@ -16,6 +16,8 @@ public class RangedEnemy : MonoBehaviour
 
     public float bulletSpeed = 20f;
 
+    private AudioSource shootSound;
+
     GameObject FiredBullet;
     public GameObject bullet;
     public GameObject bulletLocation;
@@ -39,6 +41,7 @@ public class RangedEnemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shootSound = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
@@ -95,6 +98,7 @@ public class RangedEnemy : MonoBehaviour
     {
         if (shootCooldown <= 0)
         {
+            shootSound.Play();
             FiredBullet = Instantiate(bullet, bulletLocation.transform.position, Quaternion.identity);
             dir = (target.position - transform.position).normalized;
             dirRot();    

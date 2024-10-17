@@ -709,10 +709,6 @@ PrefabInstance:
       value: Character
       objectReference: {fileID: 0}
     - target: {fileID: 160792067700619575, guid: aeb087a625a20164389ba3ed300eba4f, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 160792067700619575, guid: aeb087a625a20164389ba3ed300eba4f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 32.89
       objectReference: {fileID: 0}

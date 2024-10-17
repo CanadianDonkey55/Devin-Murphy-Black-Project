@@ -4938,6 +4938,12 @@ MonoBehaviour:
   horizontalInput: 0
   verticalInput: 0
   playerAnimations: {fileID: 1248602430}
+  footsteps:
+  - {fileID: 8300000, guid: f7c5343ef90b27249b5e8883d17a75ee, type: 3}
+  - {fileID: 8300000, guid: 100026bcce9608742a8d9ab3d56c6016, type: 3}
+  - {fileID: 8300000, guid: 4f9f40bf22162b6429b691c990c446fd, type: 3}
+  - {fileID: 8300000, guid: 39c8866581f5c4d46bcf2b27a25d651f, type: 3}
+  footstepSoundCooldown: 0.2
   InputMax: 1
   bullet: {fileID: 3439089236407592479, guid: 1867c5d3665fce241b83a71ae3f30ed3, type: 3}
   Gun: {fileID: 160792068933150105}
@@ -5197,7 +5203,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.061000153, y: -0.08836262}
+  m_Offset: {x: 0.061000153, y: -0.15931547}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -5208,7 +5214,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.368693, y: 0.47526148}
+  m_Size: {x: 0.368693, y: 0.39011794}
   m_EdgeRadius: 0
 --- !u!114 &5777920738809944470
 MonoBehaviour:

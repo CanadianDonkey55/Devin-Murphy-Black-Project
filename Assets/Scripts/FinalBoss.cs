@@ -12,6 +12,7 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] GameObject door;
     [SerializeField] ParticleSystem death;
     [SerializeField] BossDeathParticles particles;
+    Animator anim;
 
     public Slider healthBar;
 
@@ -21,7 +22,7 @@ public class FinalBoss : MonoBehaviour
 
     [Header("Distances")]
     private float locateDistance;
-    public float locatedDistance = 10f;
+    public float locatedDistance = 15f;
     public float resetDistance = 5f;
     public float shootDistance = 5f;
 
@@ -33,6 +34,7 @@ public class FinalBoss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
