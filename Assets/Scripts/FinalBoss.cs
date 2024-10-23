@@ -45,8 +45,8 @@ public class FinalBoss : MonoBehaviour
     void Update()
     {
         FollowPlayer();
-        Debug.Log(shootCooldown);
-        Debug.Log(shootingCooldown);
+        //Debug.Log(shootCooldown);
+        //Debug.Log(shootingCooldown);
         dirRot();
     }
 
@@ -69,6 +69,7 @@ public class FinalBoss : MonoBehaviour
     public void FollowPlayer()
     {
         float distance = (target.position - transform.position).magnitude;
+        ainmDirRot();
 
         if (distance <= locateDistance)
         {
@@ -129,6 +130,8 @@ public class FinalBoss : MonoBehaviour
             if (m_Angle > 0 && m_Angle < 22.5)
             {
                 beam.transform.rotation = Quaternion.Euler(0, 0, 0);
+                anim.SetFloat("horizontal", 1f);
+                anim.SetFloat("vertical", 0);
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
@@ -145,6 +148,8 @@ public class FinalBoss : MonoBehaviour
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
                 beam.transform.rotation = Quaternion.Euler(0, 0, 180);
+                anim.SetFloat("horizontal", -1f);
+                anim.SetFloat("vertical", 0);
             }
         }
 
@@ -169,6 +174,60 @@ public class FinalBoss : MonoBehaviour
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
                 beam.transform.rotation = Quaternion.Euler(0, 0, -180);
+            }
+        }
+    }
+    
+    private void ainmDirRot()
+    {
+        var distance = dir.magnitude;
+        var direction = dir / distance;
+
+        float m_Angle = Vector2.Angle(new Vector2(1, 0), direction);
+
+        Debug.Log("DO ANIMATIONS");
+
+
+
+        if (target.transform.position.y > transform.position.y)
+        {
+            if (m_Angle > 0 && m_Angle < 22.5)
+            {
+                anim.SetFloat("horizontal", 1);
+                anim.SetFloat("vertical", 0);
+            }
+            else if (m_Angle > 22.5 && m_Angle < 67.5)
+            {
+            }
+            else if (m_Angle > 67.5 && m_Angle < 112.5)
+            {
+            }
+            else if (m_Angle > 112.5 && m_Angle < 157.5)
+            {
+            }
+            else if (m_Angle > 157.5 && m_Angle < 180)
+            {
+                anim.SetFloat("horizontal", -1);
+                anim.SetFloat("vertical", 0);
+            }
+        }
+
+        else if (target.transform.position.y < transform.position.y)
+        {
+            if (m_Angle > 0 && m_Angle < 22.5)
+            {
+            }
+            else if (m_Angle > 22.5 && m_Angle < 67.5)
+            {
+            }
+            else if (m_Angle > 67.5 && m_Angle < 112.5)
+            {
+            }
+            else if (m_Angle > 112.5 && m_Angle < 157.5)
+            {
+            }
+            else if (m_Angle > 157.5 && m_Angle < 180)
+            {
             }
         }
     }
