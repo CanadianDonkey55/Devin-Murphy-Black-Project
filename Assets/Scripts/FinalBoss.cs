@@ -7,6 +7,7 @@ using UnityEngine.Tilemaps;
 
 public class FinalBoss : MonoBehaviour
 {
+    [SerializeField] GameObject boom;
     [SerializeField] Transform target;
     [SerializeField] GameObject beam;
     [SerializeField] GameObject door;
@@ -48,6 +49,7 @@ public class FinalBoss : MonoBehaviour
         //Debug.Log(shootCooldown);
         //Debug.Log(shootingCooldown);
         //dirRot();
+        animDirRot();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -115,7 +117,20 @@ public class FinalBoss : MonoBehaviour
             shootingCooldown = 6f;
         }
     }
+    
 
+    void Explosion()
+    {
+        Vector3 abc = new Vector3(3.5f, 3.5f, 3.5f);
+        while (boom.transform.localScale < abc)
+        {
+
+        }
+        boom.transform.localScale 
+    }
+
+
+    // Directional stuff below, beware
     private void dirRot()
     {
         //GameObject bulletImage = bullet.transform.GetChild(0).gameObject;
@@ -130,8 +145,8 @@ public class FinalBoss : MonoBehaviour
             if (m_Angle > 0 && m_Angle < 22.5)
             {
                 beam.transform.rotation = Quaternion.Euler(0, 0, 0);
-                enemyAnim.SetFloat("horizontalSpeed", 1f);
-                enemyAnim.SetFloat("verticalSpeed", 0);
+                //enemyAnim.SetFloat("horizontalSpeed", 1f);
+                //enemyAnim.SetFloat("verticalSpeed", 0);
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
@@ -148,8 +163,8 @@ public class FinalBoss : MonoBehaviour
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
                 beam.transform.rotation = Quaternion.Euler(0, 0, 180);
-                enemyAnim.SetFloat("horizontalSpeed", -1f);
-                enemyAnim.SetFloat("verticalSpeed", 0);
+                //enemyAnim.SetFloat("horizontalSpeed", -1f);
+                //enemyAnim.SetFloat("verticalSpeed", 0);
             }
         }
 
@@ -158,8 +173,8 @@ public class FinalBoss : MonoBehaviour
             if (m_Angle > 0 && m_Angle < 22.5)
             {
                 beam.transform.rotation = Quaternion.Euler(0, 0, 0);
-                enemyAnim.SetFloat("horizontalSpeed", 1f);
-                enemyAnim.SetFloat("verticalSpeed", 0);
+                //enemyAnim.SetFloat("horizontalSpeed", 1f);
+                //enemyAnim.SetFloat("verticalSpeed", 0);
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
@@ -176,43 +191,43 @@ public class FinalBoss : MonoBehaviour
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
                 beam.transform.rotation = Quaternion.Euler(0, 0, -180);
-                enemyAnim.SetFloat("horizontalSpeed", -1f);
-                enemyAnim.SetFloat("verticalSpeed", 0);
+                //enemyAnim.SetFloat("horizontalSpeed", -1f);
+                //enemyAnim.SetFloat("verticalSpeed", 0);
             }
         }
     }
-    
-   /* private void ainmDirRot()
+    private void animDirRot()
     {
+        dir = (target.position - transform.position).normalized;
         var distance = dir.magnitude;
         var direction = dir / distance;
 
         float m_Angle = Vector2.Angle(new Vector2(1, 0), direction);
 
-        Debug.Log("DO ANIMATIONS");
-
-
-
         if (target.transform.position.y > transform.position.y)
         {
             if (m_Angle > 0 && m_Angle < 22.5)
             {
-                enemyAnim.SetFloat("horizontal", 1);
-                enemyAnim.SetFloat("vertical", 0);
+                enemyAnim.SetFloat("horizontalSpeed", 1f);
+                enemyAnim.SetFloat("verticalSpeed", 0f);
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
+
             }
             else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
+                enemyAnim.SetFloat("verticalSpeed", 1f);
+                enemyAnim.SetFloat("horizontalSpeed", 0f);
             }
             else if (m_Angle > 112.5 && m_Angle < 157.5)
             {
+
             }
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
-                enemyAnim.SetFloat("horizontal", -1);
-                enemyAnim.SetFloat("vertical", 0);
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+                enemyAnim.SetFloat("horizontalSpeed", -1f);
             }
         }
 
@@ -220,19 +235,27 @@ public class FinalBoss : MonoBehaviour
         {
             if (m_Angle > 0 && m_Angle < 22.5)
             {
+                enemyAnim.SetFloat("horizontalSpeed", 1f);
+                enemyAnim.SetFloat("verticalSpeed", 0f);
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
+
             }
             else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
+                enemyAnim.SetFloat("verticalSpeed", -1f);
+                enemyAnim.SetFloat("horizontalSpeed", 0f);
             }
             else if (m_Angle > 112.5 && m_Angle < 157.5)
             {
+
             }
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+                enemyAnim.SetFloat("horizontalSpeed", -1f);
             }
         }
-    }*/
+    }
 }

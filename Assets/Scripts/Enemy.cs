@@ -98,7 +98,6 @@ public class Enemy : MonoBehaviour
                 enemyAnim.SetFloat("horizontalSpeed", 1f);
                 enemyAnim.SetFloat("verticalSpeed", 0f);
                 enemyAnim.SetBool("walking", true);
-                Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
@@ -109,7 +108,6 @@ public class Enemy : MonoBehaviour
                 enemyAnim.SetFloat("verticalSpeed", 1f);
                 enemyAnim.SetFloat("horizontalSpeed", 0f);
                 enemyAnim.SetBool("walking", true);
-                Debug.Log(enemyAnim.GetFloat("verticalSpeed"));
             }
             else if (m_Angle > 112.5 && m_Angle < 157.5)
             {
@@ -120,7 +118,6 @@ public class Enemy : MonoBehaviour
                 enemyAnim.SetFloat("verticalSpeed", 0f);
                 enemyAnim.SetFloat("horizontalSpeed", -1f);
                 enemyAnim.SetBool("walking", true);
-                Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
             }
         }
 
@@ -131,7 +128,6 @@ public class Enemy : MonoBehaviour
                 enemyAnim.SetFloat("horizontalSpeed", 1f);
                 enemyAnim.SetFloat("verticalSpeed", 0f);
                 enemyAnim.SetBool("walking", true);
-                Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
@@ -142,7 +138,6 @@ public class Enemy : MonoBehaviour
                 enemyAnim.SetFloat("verticalSpeed", -1f);
                 enemyAnim.SetFloat("horizontalSpeed", 0f);
                 enemyAnim.SetBool("walking", true);
-                Debug.Log(enemyAnim.GetFloat("verticalSpeed"));
             }
             else if (m_Angle > 112.5 && m_Angle < 157.5)
             {
@@ -153,7 +148,6 @@ public class Enemy : MonoBehaviour
                 enemyAnim.SetFloat("verticalSpeed", 0f);
                 enemyAnim.SetFloat("horizontalSpeed", -1f);
                 enemyAnim.SetBool("walking", true);
-                Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
             }
         }
     }

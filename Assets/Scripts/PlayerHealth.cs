@@ -51,7 +51,6 @@ public class PlayerHealth : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        Debug.Log("qwerty");
         gameObject.transform.position = gameObject.transform.position += Vector3.one * 0.0001f;
         if (collision.gameObject.tag == "BasicEnemy")
         {
