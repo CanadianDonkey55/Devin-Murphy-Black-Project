@@ -7221,7 +7221,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 129833667}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00999849, y: -5.3767235e-10, z: -5.376181e-12, w: 0.99995005}
+  m_LocalRotation: {x: -0.00999849, y: 5.376727e-10, z: 5.3761843e-12, w: 0.99995005}
   m_LocalPosition: {x: 95.02, y: -7.44, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -17143,7 +17143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255919637}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00999849, y: -5.3767235e-10, z: -5.376181e-12, w: 0.99995005}
+  m_LocalRotation: {x: -0.00999849, y: 5.376727e-10, z: 5.3761843e-12, w: 0.99995005}
   m_LocalPosition: {x: 95.02, y: -7.44, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -18748,8 +18748,10 @@ MonoBehaviour:
   door: {fileID: 1399013547}
   death: {fileID: 34850850}
   particles: {fileID: 34850848}
+  enemyAnim: {fileID: 2035370473}
   healthBar: {fileID: 2067818320}
   health: 500
+  locateDistance: 0
   locatedDistance: 15
   resetDistance: 7
   shootDistance: 7

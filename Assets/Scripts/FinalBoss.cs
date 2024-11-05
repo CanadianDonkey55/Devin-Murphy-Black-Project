@@ -12,7 +12,7 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] GameObject door;
     [SerializeField] ParticleSystem death;
     [SerializeField] BossDeathParticles particles;
-    Animator anim;
+    public Animator enemyAnim;
 
     public Slider healthBar;
 
@@ -21,7 +21,7 @@ public class FinalBoss : MonoBehaviour
     public float health = 300;
 
     [Header("Distances")]
-    private float locateDistance;
+    [SerializeField] private float locateDistance;
     public float locatedDistance = 15f;
     public float resetDistance = 5f;
     public float shootDistance = 5f;
@@ -34,11 +34,11 @@ public class FinalBoss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         locateDistance = resetDistance;
+        
     }
 
     // Update is called once per frame
@@ -47,7 +47,7 @@ public class FinalBoss : MonoBehaviour
         FollowPlayer();
         //Debug.Log(shootCooldown);
         //Debug.Log(shootingCooldown);
-        dirRot();
+        //dirRot();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -69,16 +69,15 @@ public class FinalBoss : MonoBehaviour
     public void FollowPlayer()
     {
         float distance = (target.position - transform.position).magnitude;
-        ainmDirRot();
 
         if (distance <= locateDistance)
         {
-            if (distance > shootDistance && health < health/2)
+            if (distance > shootDistance && health < 251)
             {
                 agent.SetDestination(transform.position);
                 ShootPlayer();
             }
-            else if (distance <= shootDistance || health > health/2)
+            else if (distance <= shootDistance || health > 250)
             {
                 agent.SetDestination(target.position);
                 locateDistance = locatedDistance;
@@ -95,12 +94,13 @@ public class FinalBoss : MonoBehaviour
 
     public void ShootPlayer()
     {
+        dirRot();
         if (shootCooldown > 0)
         {
             beam.SetActive(true);
             shootCooldown -= Time.deltaTime;
             dir = (target.position - transform.position).normalized;
-            dirRot();
+            //dirRot();
         }
 
         if (shootCooldown <= 0)
@@ -124,14 +124,14 @@ public class FinalBoss : MonoBehaviour
 
         float m_Angle = Vector2.Angle(new Vector2(1, 0), direction);
 
-
+       //enemyAnim.SetFloat("horizontal", -1);
         if (target.transform.position.y > transform.position.y)
         {
             if (m_Angle > 0 && m_Angle < 22.5)
             {
                 beam.transform.rotation = Quaternion.Euler(0, 0, 0);
-                anim.SetFloat("horizontal", 1f);
-                anim.SetFloat("vertical", 0);
+                enemyAnim.SetFloat("horizontalSpeed", 1f);
+                enemyAnim.SetFloat("verticalSpeed", 0);
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
@@ -148,8 +148,8 @@ public class FinalBoss : MonoBehaviour
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
                 beam.transform.rotation = Quaternion.Euler(0, 0, 180);
-                anim.SetFloat("horizontal", -1f);
-                anim.SetFloat("vertical", 0);
+                enemyAnim.SetFloat("horizontalSpeed", -1f);
+                enemyAnim.SetFloat("verticalSpeed", 0);
             }
         }
 
@@ -158,6 +158,8 @@ public class FinalBoss : MonoBehaviour
             if (m_Angle > 0 && m_Angle < 22.5)
             {
                 beam.transform.rotation = Quaternion.Euler(0, 0, 0);
+                enemyAnim.SetFloat("horizontalSpeed", 1f);
+                enemyAnim.SetFloat("verticalSpeed", 0);
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
@@ -174,11 +176,13 @@ public class FinalBoss : MonoBehaviour
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
                 beam.transform.rotation = Quaternion.Euler(0, 0, -180);
+                enemyAnim.SetFloat("horizontalSpeed", -1f);
+                enemyAnim.SetFloat("verticalSpeed", 0);
             }
         }
     }
     
-    private void ainmDirRot()
+   /* private void ainmDirRot()
     {
         var distance = dir.magnitude;
         var direction = dir / distance;
@@ -193,8 +197,8 @@ public class FinalBoss : MonoBehaviour
         {
             if (m_Angle > 0 && m_Angle < 22.5)
             {
-                anim.SetFloat("horizontal", 1);
-                anim.SetFloat("vertical", 0);
+                enemyAnim.SetFloat("horizontal", 1);
+                enemyAnim.SetFloat("vertical", 0);
             }
             else if (m_Angle > 22.5 && m_Angle < 67.5)
             {
@@ -207,8 +211,8 @@ public class FinalBoss : MonoBehaviour
             }
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
-                anim.SetFloat("horizontal", -1);
-                anim.SetFloat("vertical", 0);
+                enemyAnim.SetFloat("horizontal", -1);
+                enemyAnim.SetFloat("vertical", 0);
             }
         }
 
@@ -230,5 +234,5 @@ public class FinalBoss : MonoBehaviour
             {
             }
         }
-    }
+    }*/
 }
