@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -132,9 +133,11 @@ GameObject:
   m_Component:
   - component: {fileID: 22259367}
   - component: {fileID: 22259368}
+  - component: {fileID: 22259369}
+  - component: {fileID: 22259370}
   m_Layer: 0
   m_Name: Circle
-  m_TagString: Untagged
+  m_TagString: FinalBossEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,6 +209,62 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &22259369
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22259366}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!95 &22259370
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22259366}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b6467829de52aeb4b91664a37c4fd77c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &34850847
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,15 +354,13 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
+  m_UseCustomVertexStreams: 0
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
-  m_UseCustomVertexStreams: 0
   m_VertexStreams: 00010304
-  m_UseCustomTrailVertexStreams: 0
-  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -5629,16 +5686,6 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 126, y: -16, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 4
-      m_TileSpriteIndex: 4
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 2
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
   - first: {x: 150, y: -16, z: 0}
     second:
       serializedVersion: 2
@@ -7119,8 +7166,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 795465399231d024c8e74b952e51ef59, type: 2}
   - m_RefCount: 22
     m_Data: {fileID: 11400000, guid: 1ff12ecf63096034193b4a1e4a5dfbc2, type: 2}
-  - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: f3333a5001dd0c3469318c524ad3cab4, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 140
     m_Data: {fileID: 11400000, guid: f3a62a3a19213dd4f87606767d8f6aaf, type: 2}
   m_TileSpriteArray:
@@ -7132,12 +7179,12 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: d98c322ce5be901438c9bacdeddafc38, type: 3}
   - m_RefCount: 22
     m_Data: {fileID: 21300000, guid: 954275137bf6514469e97a707f66bf53, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: bd71c2bdd43b5a84487af6900bf727fc, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 140
     m_Data: {fileID: 21300000, guid: c75fe0aa73694f8489545a66d380f731, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 185
+  - m_RefCount: 184
     m_Data:
       e00: 1
       e01: 0
@@ -7160,7 +7207,7 @@ Tilemap:
     m_Data: {r: 5.2103e-41, g: 5.2103e-41, b: 5.2103e-41, a: 5.2103e-41}
   - m_RefCount: 0
     m_Data: {r: 3.8866e-41, g: 3.8866e-41, b: 3.8866e-41, a: 3.8866e-41}
-  - m_RefCount: 185
+  - m_RefCount: 184
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -17206,12 +17253,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!81 &1255919641
 AudioListener:
   m_ObjectHideFlags: 0
@@ -18772,6 +18819,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1676471882}
+    - target: {fileID: 160792067700619579, guid: aeb087a625a20164389ba3ed300eba4f, type: 3}
+      propertyPath: damageTimer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 160792067700619580, guid: aeb087a625a20164389ba3ed300eba4f, type: 3}
       propertyPath: ammoText
       value: 
@@ -18828,15 +18879,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90788896711dc8748a215e02901f2e55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boom: {fileID: 0}
+  boom: {fileID: 22259366}
   target: {fileID: 1919881445}
   beam: {fileID: 199254434}
   door: {fileID: 1399013547}
   death: {fileID: 34850850}
   particles: {fileID: 34850848}
   enemyAnim: {fileID: 2035370473}
+  explosionAnim: {fileID: 22259370}
   healthBar: {fileID: 2067818320}
   health: 500
+  explosionSpeed: 0.05
   locateDistance: 0
   locatedDistance: 15
   resetDistance: 7
@@ -18925,7 +18978,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1000000
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0

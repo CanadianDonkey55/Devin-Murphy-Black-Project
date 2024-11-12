@@ -4976,7 +4976,7 @@ MonoBehaviour:
   miniBossEnemyDamage: 7
   bulletDamage: 7
   lazerbeamDamage: 9
-  damageTimer: 1.5
+  damageTimer: 1
   healthBar: {fileID: 0}
   resettingScene: 0
 --- !u!114 &160792067700619580

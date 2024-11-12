@@ -14,12 +14,15 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] ParticleSystem death;
     [SerializeField] BossDeathParticles particles;
     public Animator enemyAnim;
+    public Animator explosionAnim;
 
     public Slider healthBar;
 
     NavMeshAgent agent;
 
     public float health = 300;
+
+    public float explosionSpeed = 0.5f;
 
     [Header("Distances")]
     [SerializeField] private float locateDistance;
@@ -84,6 +87,10 @@ public class FinalBoss : MonoBehaviour
                 agent.SetDestination(target.position);
                 locateDistance = locatedDistance;
                 beam.SetActive(false);
+                if (distance <= 3f && health < 251)
+                {
+                    Explosion();
+                }
             }
         }
         else
@@ -122,11 +129,11 @@ public class FinalBoss : MonoBehaviour
     void Explosion()
     {
         Vector3 abc = new Vector3(3.5f, 3.5f, 3.5f);
-        while (boom.transform.localScale < abc)
+        while (boom.transform.localScale.x < abc.x)
         {
-
+            boom.transform.localScale += new Vector3(explosionSpeed, explosionSpeed, explosionSpeed);
+            explosionAnim.SetTrigger("Boom");
         }
-        boom.transform.localScale 
     }
 
 

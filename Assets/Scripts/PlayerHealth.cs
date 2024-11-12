@@ -13,7 +13,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] float bulletDamage = 7f;
     [SerializeField] float lazerbeamDamage = 9f;
 
-    public float damageTimer = 1.5f; 
+    public float damageTimer = 1f; 
 
     public Slider healthBar;
     public bool resettingScene;
@@ -36,7 +36,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void TakeDamage(float damageTaken)
     {
-        if (damageTimer == 1.5f && takingDamage == false)
+        if (damageTimer == 1f && takingDamage == false)
         {
             takingDamage = true;
             health = health - damageTaken;
@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
         if (damageTimer <= 0)
         {
             takingDamage = false;
-            damageTimer = 1.5f;    
+            damageTimer = 1;    
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
