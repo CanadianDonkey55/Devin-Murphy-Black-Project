@@ -21,6 +21,6 @@ public class Background : MonoBehaviour
         float width = (2f * cam.orthographicSize) * cam.aspect;
 
         transform.position = player.position;
-        transform.localScale = new Vector2(width, height);
+        transform.localScale = new Vector2(width + 5, height + 5);
     }
 }

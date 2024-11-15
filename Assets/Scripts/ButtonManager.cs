@@ -8,6 +8,7 @@ public class ButtonManager : MonoBehaviour
     public GameObject levelScreen;
     public GameObject mainScreen;
     public GameObject optionsScreen;
+    public GameObject creditsScreen;
 
     public void HomeButton()
     {
@@ -31,6 +32,19 @@ public class ButtonManager : MonoBehaviour
         mainScreen.SetActive(false);
         levelScreen.SetActive(true);
     }
+
+    public void CreditsButton()
+    {
+        mainScreen.SetActive(false);
+        creditsScreen.SetActive(true);
+    }
+    
+    public void CreditsBackButton()
+    {
+        mainScreen.SetActive(true);
+        creditsScreen.SetActive(false);
+    }
+
     public void LevelSelectBackButton()
     {
         levelScreen.SetActive(false);
