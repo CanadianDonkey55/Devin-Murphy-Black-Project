@@ -7,6 +7,7 @@ using UnityEngine.Animations;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] AudioClip death;
     [SerializeField] Transform target;
 
     public Slider healthBar;
@@ -26,14 +27,7 @@ public class Enemy : MonoBehaviour
     public float horizontalSpeed;
     public float verticalSpeed;
     public Animator enemyAnim;
-    //public Sprite front;
-    //public Sprite back;
-    //public Sprite left;
-    //public Sprite right;
-    //public Sprite upleft;
-    //public Sprite upright;
-    //public Sprite downleft;
-    //public Sprite downright;
+   
 
     private new SpriteRenderer renderer;
 
@@ -50,17 +44,20 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //AudioSource.PlayClipAtPoint(death, transform.position, 1);
         FollowPlayer();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Bullet")
+        if (collision.tag == "Bullet")
         {
             health -= 5;
             healthBar.value = health;
             if (health <= 0)
             {
+                AudioSource.PlayClipAtPoint(death, transform.position, 5);
+                Debug.Log("die");
                 Destroy(gameObject);
             }
         }

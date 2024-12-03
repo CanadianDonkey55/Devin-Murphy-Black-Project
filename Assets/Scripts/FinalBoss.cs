@@ -15,6 +15,7 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] BossDeathParticles particles;
     public Animator enemyAnim;
     public Animator explosionAnim;
+    public AudioClip deathSound, shockwave;
 
     public Slider healthBar;
 
@@ -63,6 +64,7 @@ public class FinalBoss : MonoBehaviour
             healthBar.value = health;
             if (health <= 0)
             {
+                AudioSource.PlayClipAtPoint(deathSound, transform.position, 1);
                 door.SetActive(false);
                 death.Play(true);
                 particles.bossDead = true;
@@ -108,6 +110,10 @@ public class FinalBoss : MonoBehaviour
         {
             beam.SetActive(true);
             shootCooldown -= Time.deltaTime;
+            if (!gameObject.GetComponent<AudioSource>().isPlaying)
+            {
+                gameObject.GetComponent<AudioSource>().Play();
+            }
             dir = (target.position - transform.position).normalized;
             //dirRot();
         }
@@ -132,6 +138,7 @@ public class FinalBoss : MonoBehaviour
         while (boom.transform.localScale.x < abc.x)
         {
             boom.transform.localScale += new Vector3(explosionSpeed, explosionSpeed, explosionSpeed);
+            AudioSource.PlayClipAtPoint(shockwave, transform.position, 0.2f);
             explosionAnim.SetTrigger("Boom");
         }
     }

@@ -12,6 +12,8 @@ public class MiniBoss : MonoBehaviour
     [SerializeField] GameObject door;
     [SerializeField] ParticleSystem death;
     [SerializeField] BossDeathParticles particles;
+    public Animator enemyAnim;
+    public AudioClip deathSound;
 
     public Slider healthBar;
 
@@ -46,6 +48,7 @@ public class MiniBoss : MonoBehaviour
        // Debug.Log(shootCooldown);
         //Debug.Log(shootingCooldown);
         dirRot();
+        animDirRot();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,6 +59,7 @@ public class MiniBoss : MonoBehaviour
             healthBar.value = health;
             if (health <= 0)
             {
+                AudioSource.PlayClipAtPoint(deathSound, transform.position, 1);
                 door.SetActive(false);
                 death.Play(true);
                 particles.bossDead = true;
@@ -96,6 +100,10 @@ public class MiniBoss : MonoBehaviour
         {
             beam.SetActive(true);
             shootCooldown -= Time.deltaTime;
+            if (!gameObject.GetComponent<AudioSource>().isPlaying)
+            {
+                gameObject.GetComponent<AudioSource>().Play();
+            }
             dir = (target.position - transform.position).normalized;
             dirRot();
         }
@@ -167,6 +175,69 @@ public class MiniBoss : MonoBehaviour
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
                 beam.transform.rotation = Quaternion.Euler(0, 0, -180);
+            }
+        }
+    }
+
+    private void animDirRot()
+    {
+        dir = (target.position - transform.position).normalized;
+        var distance = dir.magnitude;
+        var direction = dir / distance;
+
+        float m_Angle = Vector2.Angle(new Vector2(1, 0), direction);
+
+        if (target.transform.position.y > transform.position.y)
+        {
+            if (m_Angle > 0 && m_Angle < 22.5)
+            {
+                enemyAnim.SetFloat("horizontalSpeed", 1f);
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+            }
+            else if (m_Angle > 22.5 && m_Angle < 67.5)
+            {
+
+            }
+            else if (m_Angle > 67.5 && m_Angle < 112.5)
+            {
+                enemyAnim.SetFloat("verticalSpeed", 1f);
+                enemyAnim.SetFloat("horizontalSpeed", 0f);
+            }
+            else if (m_Angle > 112.5 && m_Angle < 157.5)
+            {
+
+            }
+            else if (m_Angle > 157.5 && m_Angle < 180)
+            {
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+                enemyAnim.SetFloat("horizontalSpeed", -1f);
+            }
+        }
+
+        else if (target.transform.position.y < transform.position.y)
+        {
+            if (m_Angle > 0 && m_Angle < 22.5)
+            {
+                enemyAnim.SetFloat("horizontalSpeed", 1f);
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+            }
+            else if (m_Angle > 22.5 && m_Angle < 67.5)
+            {
+
+            }
+            else if (m_Angle > 67.5 && m_Angle < 112.5)
+            {
+                enemyAnim.SetFloat("verticalSpeed", -1f);
+                enemyAnim.SetFloat("horizontalSpeed", 0f);
+            }
+            else if (m_Angle > 112.5 && m_Angle < 157.5)
+            {
+
+            }
+            else if (m_Angle > 157.5 && m_Angle < 180)
+            {
+                enemyAnim.SetFloat("verticalSpeed", 0f);
+                enemyAnim.SetFloat("horizontalSpeed", -1f);
             }
         }
     }

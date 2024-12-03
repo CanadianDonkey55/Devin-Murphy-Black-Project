@@ -29,6 +29,12 @@ public class Pitfall : MonoBehaviour
         {
             Debug.Log("hehehehaw");
             gameObject.GetComponentInParent<Animator>().SetBool("falling", true);
+
+            if (!gameObject.GetComponent<AudioSource>().isPlaying)
+            {
+                gameObject.GetComponent<AudioSource>().Play();
+            }
+
             PlayerMovement playerMovement = gameObject.GetComponentInParent<PlayerMovement>();
             playerMovement.enabled = false;
             playerParent.GetComponent<PlayerAttack>().enabled = false;

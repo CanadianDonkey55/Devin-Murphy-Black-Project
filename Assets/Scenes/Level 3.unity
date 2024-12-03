@@ -619,10 +619,6 @@ PrefabInstance:
       value: Character
       objectReference: {fileID: 0}
     - target: {fileID: 160792067700619575, guid: aeb087a625a20164389ba3ed300eba4f, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 160792067700619575, guid: aeb087a625a20164389ba3ed300eba4f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 95.02
       objectReference: {fileID: 0}
@@ -21886,18 +21882,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 931856248}
-    - target: {fileID: 4340347503686884518, guid: 546a4a025ef066c43a997e6a7f603b5a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8065306380012905705, guid: 546a4a025ef066c43a997e6a7f603b5a, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 263216193}
-    - target: {fileID: 8065306380012905707, guid: 546a4a025ef066c43a997e6a7f603b5a, type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8065306380012905707, guid: 546a4a025ef066c43a997e6a7f603b5a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 74.02
@@ -21941,10 +21929,6 @@ PrefabInstance:
     - target: {fileID: 8065306380012905709, guid: 546a4a025ef066c43a997e6a7f603b5a, type: 3}
       propertyPath: m_Name
       value: Basic Enemy (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 8065306380012905709, guid: 546a4a025ef066c43a997e6a7f603b5a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8453573913298567850, guid: 546a4a025ef066c43a997e6a7f603b5a, type: 3}
       propertyPath: m_AnchorMax.x
