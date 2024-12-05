@@ -18863,7 +18863,7 @@ GameObject:
   - component: {fileID: 2035370470}
   - component: {fileID: 2035370473}
   m_Layer: 0
-  m_Name: Elijah (Final boss)
+  m_Name: Final boss
   m_TagString: FinalBossEnemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
