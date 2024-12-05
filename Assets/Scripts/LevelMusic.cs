@@ -5,17 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class LevelMusic : MonoBehaviour
 {
-    DontDestroyOnLoad(gameObject);
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if ()
+        if (SceneManager.GetActiveScene().buildIndex > 1 && SceneManager.GetActiveScene().buildIndex < 12)
+        {
+            gameObject.GetComponent<AudioSource>().volume = 1;
+        } else
+        {
+            gameObject.GetComponent<AudioSource>().volume = 0;
+        }
     }
 }
