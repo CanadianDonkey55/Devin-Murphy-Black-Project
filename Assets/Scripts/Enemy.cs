@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour
 
     public float health = 20;
 
+    public bool dead = false;
+
     [Header("Distances")]
     private float locateDistance;
     public float locatedDistance = 10f;
@@ -58,6 +60,7 @@ public class Enemy : MonoBehaviour
             {
                 AudioSource.PlayClipAtPoint(death, transform.position, 5);
                 Debug.Log("die");
+                dead = true;
                 Destroy(gameObject);
             }
         }

@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
     float reloadSpeed;
     [SerializeField] float startingReloadSpeed = 4;
     public bool isReloading = false;
+    public AudioSource reloadSound;
     public float ammo = 20;
     public TextMeshProUGUI ammoText;
     public TextMeshProUGUI reloadText;
@@ -54,7 +55,8 @@ public class PlayerAttack : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            isReloading = true;      
+            isReloading = true;
+            reloadSound.Play();
         }
         if (isReloading == true)
         {
