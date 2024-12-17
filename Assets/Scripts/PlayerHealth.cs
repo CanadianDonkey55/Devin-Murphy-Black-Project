@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     public float health = 100f;
-    [SerializeField] float basicEnemyDamage = 5f;
+    [SerializeField] public float basicEnemyDamage = 5f;
     [SerializeField] float bossEnemyDamage = 10f;
     [SerializeField] float miniBossEnemyDamage = 7f;
     [SerializeField] float bulletDamage = 7f;

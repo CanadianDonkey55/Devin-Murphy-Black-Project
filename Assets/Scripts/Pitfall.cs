@@ -60,6 +60,8 @@ public class Pitfall : MonoBehaviour
                 playerParent.GetComponent<PlayerAttack>().enabled = true;
                 hitPosition = Vector3.zero;
                 playerParent.GetComponent<PlayerHealth>().resettingScene = false;
+                playerParent.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
+                playerParent.GetComponent<PlayerHealth>().health -= playerParent.GetComponent<PlayerHealth>().basicEnemyDamage;
                 //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 //Debug.Log(SceneManager.GetActiveScene().buildIndex);
             }

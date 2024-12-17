@@ -24,6 +24,7 @@ public class RangedEnemy : MonoBehaviour
     public EnemyBulletMove move;
 
     [SerializeField] private float shootCooldown = 1f;
+    [SerializeField] private GameObject shootAlert;
 
     [Header("Distances")]
     private float locateDistance;
@@ -46,6 +47,7 @@ public class RangedEnemy : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         locateDistance = resetDistance;
+        shootAlert.SetActive(false);
     }
 
     // Update is called once per frame
@@ -96,6 +98,12 @@ public class RangedEnemy : MonoBehaviour
 
     public void ShootPlayer()
     {
+        if (shootCooldown <= 0.3f)
+        {
+            Debug.Log("Alert");
+            shootAlert.SetActive(true);
+        }
+
         if (shootCooldown <= 0)
         {
             shootSound.Play();
@@ -103,6 +111,7 @@ public class RangedEnemy : MonoBehaviour
             dir = (target.position - transform.position).normalized;
             dirRot();    
             FiredBullet.GetComponentInChildren<EnemyBulletMove>().enemyDirection = new Vector2(dir.x, dir.y);
+            shootAlert.SetActive(false);
             shootCooldown = 1;
         }
 
