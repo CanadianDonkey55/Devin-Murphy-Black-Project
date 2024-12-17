@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Doors : MonoBehaviour
 {
-    public Enemy[] basicEnemies;
+    public int enemyCount;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameObject.FindGameObjectsWithTag("BasicEnemy");
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        enemyCount = GameObject.FindGameObjectsWithTag("BasicEnemy").Length + GameObject.FindGameObjectsWithTag("RangedEnemy").Length;
+
+        if (enemyCount == 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

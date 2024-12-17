@@ -55,8 +55,12 @@ public class Pitfall : MonoBehaviour
 
             if (playerParent.GetComponent<PlayerHealth>().resettingScene == true)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                Debug.Log(SceneManager.GetActiveScene().buildIndex);
+                playerParent.transform.position = new Vector2(playerParent.transform.position.x - 1, playerParent.transform.position.y);
+                gameObject.GetComponentInParent<Animator>().SetBool("falling", false);
+                playerMovement.enabled = true;
+                playerParent.GetComponent<PlayerAttack>().enabled = false;
+                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                //Debug.Log(SceneManager.GetActiveScene().buildIndex);
             }
         }
     }
