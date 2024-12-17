@@ -28,14 +28,13 @@ public class Pitfall : MonoBehaviour
         if (collision.gameObject.tag == "Pitfall")
         {
             Debug.Log("hehehehaw");
-            gameObject.GetComponentInParent<Animator>().SetBool("falling", true);
-
+            playerParent.GetComponent<Animator>().SetBool("falling", true);
             if (!gameObject.GetComponent<AudioSource>().isPlaying)
             {
                 gameObject.GetComponent<AudioSource>().Play();
             }
 
-            PlayerMovement playerMovement = gameObject.GetComponentInParent<PlayerMovement>();
+            PlayerMovement playerMovement = playerParent.GetComponent<PlayerMovement>();
             playerMovement.enabled = false;
             playerParent.GetComponent<PlayerAttack>().enabled = false;
 
@@ -56,9 +55,11 @@ public class Pitfall : MonoBehaviour
             if (playerParent.GetComponent<PlayerHealth>().resettingScene == true)
             {
                 playerParent.transform.position = new Vector2(playerParent.transform.position.x - 1, playerParent.transform.position.y);
-                gameObject.GetComponentInParent<Animator>().SetBool("falling", false);
+                playerParent.GetComponent<Animator>().SetBool("falling", false);
                 playerMovement.enabled = true;
-                playerParent.GetComponent<PlayerAttack>().enabled = false;
+                playerParent.GetComponent<PlayerAttack>().enabled = true;
+                hitPosition = Vector3.zero;
+                playerParent.GetComponent<PlayerHealth>().resettingScene = false;
                 //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 //Debug.Log(SceneManager.GetActiveScene().buildIndex);
             }
