@@ -13,11 +13,6 @@ public class EndLvl1 : MonoBehaviour
         LevelComplete.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")

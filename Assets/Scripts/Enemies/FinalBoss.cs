@@ -5,15 +5,17 @@ using UnityEngine.UI;
 using UnityEngine.AI;
 using UnityEngine.Tilemaps;
 
-public class MiniBoss : MonoBehaviour
+public class FinalBoss : MonoBehaviour
 {
+    [SerializeField] GameObject boom;
     [SerializeField] Transform target;
     [SerializeField] GameObject beam;
     [SerializeField] GameObject door;
     [SerializeField] ParticleSystem death;
     [SerializeField] BossDeathParticles particles;
     public Animator enemyAnim;
-    public AudioClip deathSound;
+    public Animator explosionAnim;
+    public AudioClip deathSound, shockwave;
 
     public Slider healthBar;
 
@@ -21,9 +23,11 @@ public class MiniBoss : MonoBehaviour
 
     public float health = 300;
 
+    public float explosionSpeed = 0.5f;
+
     [Header("Distances")]
-    private float locateDistance;
-    public float locatedDistance = 10f;
+    [SerializeField] private float locateDistance;
+    public float locatedDistance = 15f;
     public float resetDistance = 5f;
     public float shootDistance = 5f;
 
@@ -39,15 +43,13 @@ public class MiniBoss : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         locateDistance = resetDistance;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         FollowPlayer();
-       // Debug.Log(shootCooldown);
-        //Debug.Log(shootingCooldown);
-        dirRot();
         animDirRot();
     }
 
@@ -71,19 +73,23 @@ public class MiniBoss : MonoBehaviour
     public void FollowPlayer()
     {
         float distance = (target.position - transform.position).magnitude;
-        
+
         if (distance <= locateDistance)
         {
-            if (distance > shootDistance && health < 150)
-            {   
+            if (distance > shootDistance && health < 251)
+            {
                 agent.SetDestination(transform.position);
                 ShootPlayer();
             }
-            else if (distance <= shootDistance || health > 150)
+            else if (distance <= shootDistance || health > 250)
             {
                 agent.SetDestination(target.position);
                 locateDistance = locatedDistance;
                 beam.SetActive(false);
+                if (distance <= 3f && health < 251)
+                {
+                    Explosion();
+                }
             }
         }
         else
@@ -96,6 +102,7 @@ public class MiniBoss : MonoBehaviour
 
     public void ShootPlayer()
     {
+        dirRot();
         if (shootCooldown > 0)
         {
             beam.SetActive(true);
@@ -105,7 +112,6 @@ public class MiniBoss : MonoBehaviour
                 gameObject.GetComponent<AudioSource>().Play();
             }
             dir = (target.position - transform.position).normalized;
-            dirRot();
         }
 
         if (shootCooldown <= 0)
@@ -120,15 +126,27 @@ public class MiniBoss : MonoBehaviour
             shootingCooldown = 6f;
         }
     }
+    
 
+    void Explosion()
+    {
+        Vector3 abc = new Vector3(3.5f, 3.5f, 3.5f);
+        while (boom.transform.localScale.x < abc.x)
+        {
+            boom.transform.localScale += new Vector3(explosionSpeed, explosionSpeed, explosionSpeed);
+            AudioSource.PlayClipAtPoint(shockwave, transform.position, 0.2f);
+            explosionAnim.SetTrigger("Boom");
+        }
+    }
+
+
+    // Directional stuff below, beware
     private void dirRot()
     {
-        //GameObject bulletImage = bullet.transform.GetChild(0).gameObject;
         var distance = dir.magnitude;
         var direction = dir / distance;
 
         float m_Angle = Vector2.Angle(new Vector2(1, 0), direction);
-
 
         if (target.transform.position.y > transform.position.y)
         {
@@ -178,7 +196,6 @@ public class MiniBoss : MonoBehaviour
             }
         }
     }
-
     private void animDirRot()
     {
         dir = (target.position - transform.position).normalized;
@@ -194,18 +211,10 @@ public class MiniBoss : MonoBehaviour
                 enemyAnim.SetFloat("horizontalSpeed", 1f);
                 enemyAnim.SetFloat("verticalSpeed", 0f);
             }
-            else if (m_Angle > 22.5 && m_Angle < 67.5)
-            {
-
-            }
             else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
                 enemyAnim.SetFloat("verticalSpeed", 1f);
                 enemyAnim.SetFloat("horizontalSpeed", 0f);
-            }
-            else if (m_Angle > 112.5 && m_Angle < 157.5)
-            {
-
             }
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
@@ -221,18 +230,10 @@ public class MiniBoss : MonoBehaviour
                 enemyAnim.SetFloat("horizontalSpeed", 1f);
                 enemyAnim.SetFloat("verticalSpeed", 0f);
             }
-            else if (m_Angle > 22.5 && m_Angle < 67.5)
-            {
-
-            }
             else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
                 enemyAnim.SetFloat("verticalSpeed", -1f);
                 enemyAnim.SetFloat("horizontalSpeed", 0f);
-            }
-            else if (m_Angle > 112.5 && m_Angle < 157.5)
-            {
-
             }
             else if (m_Angle > 157.5 && m_Angle < 180)
             {

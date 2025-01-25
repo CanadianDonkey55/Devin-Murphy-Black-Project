@@ -17,12 +17,6 @@ public class Pitfall : MonoBehaviour
         playerParent = gameObject.transform.parent.gameObject;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Pitfall")
@@ -62,8 +56,6 @@ public class Pitfall : MonoBehaviour
                 playerParent.GetComponent<PlayerHealth>().resettingScene = false;
                 playerParent.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
                 playerParent.GetComponent<PlayerHealth>().health -= playerParent.GetComponent<PlayerHealth>().basicEnemyDamage;
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-                //Debug.Log(SceneManager.GetActiveScene().buildIndex);
             }
         }
     }

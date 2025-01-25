@@ -135,20 +135,12 @@ public class RangedEnemy : MonoBehaviour
                 enemyAnim.SetBool("walking", true);
                 Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
             }
-            else if (m_Angle > 22.5 && m_Angle < 67.5)
-            {
-
-            }
             else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
                 enemyAnim.SetFloat("verticalSpeed", 1f);
                 enemyAnim.SetFloat("horizontalSpeed", 0f);
                 enemyAnim.SetBool("walking", true);
                 Debug.Log(enemyAnim.GetFloat("verticalSpeed"));
-            }
-            else if (m_Angle > 112.5 && m_Angle < 157.5)
-            {
-
             }
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
@@ -168,20 +160,12 @@ public class RangedEnemy : MonoBehaviour
                 enemyAnim.SetBool("walking", true);
                 Debug.Log(enemyAnim.GetFloat("horizontalSpeed"));
             }
-            else if (m_Angle > 22.5 && m_Angle < 67.5)
-            {
-
-            }
             else if (m_Angle > 67.5 && m_Angle < 112.5)
             {
                 enemyAnim.SetFloat("verticalSpeed", -1f);
                 enemyAnim.SetFloat("horizontalSpeed", 0f);
                 enemyAnim.SetBool("walking", true);
                 Debug.Log(enemyAnim.GetFloat("verticalSpeed"));
-            }
-            else if (m_Angle > 112.5 && m_Angle < 157.5)
-            {
-
             }
             else if (m_Angle > 157.5 && m_Angle < 180)
             {
@@ -195,7 +179,6 @@ public class RangedEnemy : MonoBehaviour
 
     private void dirRot()
     {
-        //GameObject bulletImage = bullet.transform.GetChild(0).gameObject;
         var distance = dir.magnitude;
         var direction = dir / distance;
 

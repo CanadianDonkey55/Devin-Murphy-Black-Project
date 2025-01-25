@@ -22,7 +22,6 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        //Debug.Log(damageTimer);
         if (health <= 0)
         {
             SceneManager.LoadScene(1);
