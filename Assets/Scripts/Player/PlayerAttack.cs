@@ -49,14 +49,13 @@ public class PlayerAttack : MonoBehaviour
             ammoText.text = ammo + "/20";
             shootCooldown = startingShootCooldown;
         }
-        if (ammo <= 0)
+        if (ammo <= 0 && !isReloading)
         {
-            isReloading = true;
+            StartReload();
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && !isReloading)
         {
-            isReloading = true;
-            reloadSound.Play();
+            StartReload();
         }
         if (isReloading == true)
         {
@@ -74,6 +73,12 @@ public class PlayerAttack : MonoBehaviour
             reloadText.enabled = false;
         }
         shootCooldown -= Time.deltaTime;
+    }
+
+    void StartReload()
+    {
+        isReloading = true;
+        reloadSound.Play();
     }
 
 }

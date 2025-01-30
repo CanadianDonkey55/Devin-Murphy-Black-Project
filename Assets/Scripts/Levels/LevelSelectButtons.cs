@@ -39,63 +39,63 @@ public class LevelSelectButtons : MonoBehaviour
         } 
         else if (lvl2)
         {
-            if (loader.lvl1Done)
+            if (loader.lvlsDone[0])
             {
                 gameObject.GetComponent<Button>().interactable = true;
             }
         } 
         else if (lvl3)
         {
-            if (loader.lvl2Done)
+            if (loader.lvlsDone[1])
             {
                 gameObject.GetComponent<Button>().interactable = true;
             }
         }
         else if (lvl4)
         {
-            if (loader.lvl3Done)
+            if (loader.lvlsDone[2])
             {
                 gameObject.GetComponent<Button>().interactable = true;
             }
         }
         else if (lvl5)
         {
-            if (loader.lvl4Done)
+            if (loader.lvlsDone[3])
             {
                 gameObject.GetComponent<Button>().interactable = true;
             }
         }
         else if (lvl6)
         {
-            if (loader.lvl5Done)
+            if (loader.lvlsDone[4])
             {
                 gameObject.GetComponent<Button>().interactable = true;
             }
         }
         else if (lvl7)
         {
-            if (loader.lvl6Done)
+            if (loader.lvlsDone[5])
             {
                 gameObject.GetComponent<Button>().interactable = true;
             }
         }
         else if (lvl8)
         {
-            if (loader.lvl7Done)
+            if (loader.lvlsDone[6])
             {
                 gameObject.GetComponent<Button>().interactable = true;
             }
         }
         else if (lvl9)
         {
-            if (loader.lvl8Done)
+            if (loader.lvlsDone[7])
             {
                 gameObject.GetComponent<Button>().interactable = true;
             }
         }
         else if (lvl10)
         {
-            if (loader.lvl9Done)
+            if (loader.lvlsDone[8])
             {
                 gameObject.GetComponent<Button>().interactable = true;
             }

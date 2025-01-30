@@ -12,15 +12,7 @@ public class ContinueLoader : MonoBehaviour
     private static GameObject sampleInstance;
 
     [Header("Bools")]
-    public bool lvl1Done = false;
-    public bool lvl2Done = false;
-    public bool lvl3Done = false;
-    public bool lvl4Done = false;
-    public bool lvl5Done = false;
-    public bool lvl6Done = false;
-    public bool lvl7Done = false;
-    public bool lvl8Done = false;
-    public bool lvl9Done = false;
+    public bool[] lvlsDone = {false, false, false, false, false, false, false, false, false};
 
     private void Awake()
     {
@@ -51,41 +43,12 @@ public class ContinueLoader : MonoBehaviour
         {
             ContinueLoader loaders = FindObjectOfType<ContinueLoader>();
             loaders.sceneNumber = sceneNumber;
-            if (lvl1Done)
+            for (int i = 0; i < lvlsDone.Length; i++)
             {
-                loaders.lvl1Done = true;
-            }
-            if (lvl2Done)
-            {
-                loaders.lvl2Done = true;
-            }
-            if (lvl3Done)
-            {
-                loaders.lvl3Done = true;
-            }
-            if (lvl4Done)
-            {
-                loaders.lvl4Done = true;
-            }
-            if (lvl5Done)
-            {
-                loaders.lvl5Done = true;
-            }
-            if (lvl6Done)
-            {
-                loaders.lvl6Done = true;
-            }
-            if (lvl7Done)
-            {
-                loaders.lvl7Done = true;
-            }
-            if (lvl8Done)
-            {
-                loaders.lvl8Done = true;
-            }
-            if (lvl9Done)
-            {
-                loaders.lvl9Done = true;
+                if (lvlsDone[i])
+                {
+                    loaders.lvlsDone[i] = true;
+                }
             }
 
         }
@@ -95,7 +58,7 @@ public class ContinueLoader : MonoBehaviour
             ContinueLoader[] loaders = FindObjectsOfType<ContinueLoader>();
             foreach (ContinueLoader go in loaders)
             {
-                if (go.gameObject != gameObject && lvl1Done && go.onLevel == false)
+                if (go.gameObject != gameObject && lvlsDone[0] && go.onLevel == false)
                 {
                     Destroy(go);
                 }

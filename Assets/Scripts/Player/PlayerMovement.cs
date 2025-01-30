@@ -35,6 +35,12 @@ public class PlayerMovement : MonoBehaviour
     public Sprite gunNormal;
     public Sprite gunAbove;
 
+    [Header("Input Delay")]
+    public float diagonalDelay = 0.2f; // Delay in seconds
+    private float diagonalTimer = 0f;
+    private float lastHorizontalInput = 0f;
+    private float lastVerticalInput = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +68,29 @@ public class PlayerMovement : MonoBehaviour
 
     void GunCode()
     {
+        if (Mathf.Abs(horizontalInput) > 0 && Mathf.Abs(verticalInput) > 0)
+        {
+            lastHorizontalInput = horizontalInput;
+            lastVerticalInput = verticalInput;
+            diagonalTimer = diagonalDelay;
+        }
+        else if (Mathf.Abs(horizontalInput) > 0 || Mathf.Abs(verticalInput) > 0)
+        {
+            // Reset diagonal if enough time has passed since one input was released
+            if (diagonalTimer > 0)
+            {
+                diagonalTimer -= Time.deltaTime;
+                horizontalInput = lastHorizontalInput;
+                verticalInput = lastVerticalInput;
+            }
+            else
+            {
+                // Update last valid input for single directions
+                if (Mathf.Abs(horizontalInput) > 0) lastHorizontalInput = horizontalInput;
+                if (Mathf.Abs(verticalInput) > 0) lastVerticalInput = verticalInput;
+            }
+        }
+
         if (horizontalInput > 0)
         {
             InputMax = 1;
@@ -145,8 +174,5 @@ public class PlayerMovement : MonoBehaviour
         Gun.GetComponent<SpriteRenderer>().flipY = gunYFlip;
         renderer.sprite = characterSprite;
         Gun.transform.localPosition = gunPos;
-    }
-
-    
+    }   
 }
-
